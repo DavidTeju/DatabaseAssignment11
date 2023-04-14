@@ -95,6 +95,7 @@
   <ItemGroup>
     <Content Include="definitions.sql" />
     <Content Include="EER.pdf" />
+    <Content Include="inserts.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
