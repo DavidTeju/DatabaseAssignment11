@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,21 @@ namespace DatabaseAssignment11
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void clientBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.clientBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.cPSC285S23BDataSet);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'cPSC285S23BDataSet.Class' table. You can move, or remove it, as needed.
+            this.classTableAdapter.Fill(this.cPSC285S23BDataSet.Class);
+            // TODO: This line of code loads data into the 'cPSC285S23BDataSet.Client' table. You can move, or remove it, as needed.
+            this.clientTableAdapter.Fill(this.cPSC285S23BDataSet.Client);
         }
     }
 }
