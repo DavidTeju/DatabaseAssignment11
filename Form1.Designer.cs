@@ -170,7 +170,7 @@
             this.workerBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.workerBindingNavigator.Name = "workerBindingNavigator";
             this.workerBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.workerBindingNavigator.Size = new System.Drawing.Size(309, 25);
+            this.workerBindingNavigator.Size = new System.Drawing.Size(278, 25);
             this.workerBindingNavigator.TabIndex = 1;
             this.workerBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -367,6 +367,7 @@
             this.rbNextWeek.TabStop = true;
             this.rbNextWeek.Text = "Next Week";
             this.rbNextWeek.UseVisualStyleBackColor = true;
+            this.rbNextWeek.CheckedChanged += new System.EventHandler(this.rbNextWeek_CheckedChanged);
             // 
             // rbNextMonth
             // 
@@ -378,6 +379,7 @@
             this.rbNextMonth.TabStop = true;
             this.rbNextMonth.Text = "Next Month";
             this.rbNextMonth.UseVisualStyleBackColor = true;
+            this.rbNextMonth.CheckedChanged += new System.EventHandler(this.rbNextMonth_CheckedChanged);
             // 
             // dataGridView1
             // 
