@@ -37,6 +37,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.workersTab = new System.Windows.Forms.TabPage();
             this.clientTab = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.classDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +48,7 @@
             this.classBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cPSC285S23BDataSet = new DatabaseAssignment11.CPSC285S23BDataSet();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.clientNameCmbBox = new System.Windows.Forms.ComboBox();
             this.clientBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -67,7 +68,6 @@
             this.clientTableAdapter = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.ClientTableAdapter();
             this.tableAdapterManager = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.TableAdapterManager();
             this.classTableAdapter = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.ClassTableAdapter();
-            this.button2 = new System.Windows.Forms.Button();
             client_IDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             genderLabel = new System.Windows.Forms.Label();
@@ -146,7 +146,7 @@
             this.clientTab.Controls.Add(this.button2);
             this.clientTab.Controls.Add(this.button1);
             this.clientTab.Controls.Add(this.classDataGridView);
-            this.clientTab.Controls.Add(this.comboBox1);
+            this.clientTab.Controls.Add(this.clientNameCmbBox);
             this.clientTab.Controls.Add(this.clientBindingNavigator);
             this.clientTab.Controls.Add(client_IDLabel);
             this.clientTab.Controls.Add(this.client_IDTextBox);
@@ -163,6 +163,15 @@
             this.clientTab.TabIndex = 1;
             this.clientTab.Text = "clients";
             this.clientTab.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(911, 175);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 40);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Add Class";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -243,15 +252,15 @@
             this.cPSC285S23BDataSet.Namespace = "http://tempuri.org/CPSC285S23BDataSet.xsd";
             this.cPSC285S23BDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // comboBox1
+            // clientNameCmbBox
             // 
-            this.comboBox1.DataSource = this.clientBindingSource;
-            this.comboBox1.DisplayMember = "Name";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(133, 110);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(264, 33);
-            this.comboBox1.TabIndex = 8;
+            this.clientNameCmbBox.DataSource = this.clientBindingSource;
+            this.clientNameCmbBox.DisplayMember = "Name";
+            this.clientNameCmbBox.FormattingEnabled = true;
+            this.clientNameCmbBox.Location = new System.Drawing.Point(133, 110);
+            this.clientNameCmbBox.Name = "clientNameCmbBox";
+            this.clientNameCmbBox.Size = new System.Drawing.Size(264, 33);
+            this.clientNameCmbBox.TabIndex = 8;
             // 
             // clientBindingNavigator
             // 
@@ -408,15 +417,6 @@
             // 
             this.classTableAdapter.ClearBeforeFill = true;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(911, 175);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 40);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Add Class";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -470,7 +470,7 @@
         private System.Windows.Forms.TextBox client_IDTextBox;
         private System.Windows.Forms.TextBox genderTextBox;
         private System.Windows.Forms.TextBox ageTextBox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox clientNameCmbBox;
         private System.Windows.Forms.BindingSource classBindingSource;
         private CPSC285S23BDataSetTableAdapters.ClassTableAdapter classTableAdapter;
         private System.Windows.Forms.DataGridView classDataGridView;
