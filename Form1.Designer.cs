@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label client_IDLabel;
-            System.Windows.Forms.Label nameLabel;
+            System.Windows.Forms.Label clientNameLabel;
             System.Windows.Forms.Label genderLabel;
             System.Windows.Forms.Label ageLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
@@ -69,7 +69,7 @@
             this.tableAdapterManager = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.TableAdapterManager();
             this.classTableAdapter = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.ClassTableAdapter();
             client_IDLabel = new System.Windows.Forms.Label();
-            nameLabel = new System.Windows.Forms.Label();
+            clientNameLabel = new System.Windows.Forms.Label();
             genderLabel = new System.Windows.Forms.Label();
             ageLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
@@ -91,14 +91,14 @@
             client_IDLabel.TabIndex = 0;
             client_IDLabel.Text = "Client ID:";
             // 
-            // nameLabel
+            // clientNameLabel
             // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(28, 113);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(74, 25);
-            nameLabel.TabIndex = 2;
-            nameLabel.Text = "Name:";
+            clientNameLabel.AutoSize = true;
+            clientNameLabel.Location = new System.Drawing.Point(28, 113);
+            clientNameLabel.Name = "clientNameLabel";
+            clientNameLabel.Size = new System.Drawing.Size(74, 25);
+            clientNameLabel.TabIndex = 2;
+            clientNameLabel.Text = "Name:";
             // 
             // genderLabel
             // 
@@ -150,7 +150,7 @@
             this.clientTab.Controls.Add(this.clientBindingNavigator);
             this.clientTab.Controls.Add(client_IDLabel);
             this.clientTab.Controls.Add(this.client_IDTextBox);
-            this.clientTab.Controls.Add(nameLabel);
+            this.clientTab.Controls.Add(clientNameLabel);
             this.clientTab.Controls.Add(genderLabel);
             this.clientTab.Controls.Add(this.genderTextBox);
             this.clientTab.Controls.Add(ageLabel);
