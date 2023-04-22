@@ -462,6 +462,7 @@
             this.rbNextWeek.TabStop = true;
             this.rbNextWeek.Text = "Next Week";
             this.rbNextWeek.UseVisualStyleBackColor = true;
+            this.rbNextWeek.CheckedChanged += new System.EventHandler(this.rbNextWeek_CheckedChanged);
             // 
             // rbNextMonth
             // 
@@ -473,6 +474,7 @@
             this.rbNextMonth.TabStop = true;
             this.rbNextMonth.Text = "Next Month";
             this.rbNextMonth.UseVisualStyleBackColor = true;
+            this.rbNextMonth.CheckedChanged += new System.EventHandler(this.rbNextMonth_CheckedChanged);
             // 
             // dataGridView1
             // 
