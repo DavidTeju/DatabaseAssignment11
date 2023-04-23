@@ -39,6 +39,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.workersTab = new System.Windows.Forms.TabPage();
+            this.schedulePanel = new System.Windows.Forms.Panel();
+            this.rbNextMonth = new System.Windows.Forms.RadioButton();
+            this.rbCurrentDay = new System.Windows.Forms.RadioButton();
+            this.rbNextWeek = new System.Windows.Forms.RadioButton();
             this.workerBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.wbindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.workerBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -54,27 +58,17 @@
             this.wbindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.wbindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.workerBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.rbNextMonth = new System.Windows.Forms.RadioButton();
-            this.rbNextWeek = new System.Windows.Forms.RadioButton();
-            this.rbCurrentDay = new System.Windows.Forms.RadioButton();
+            this.scheduleDataGridView = new System.Windows.Forms.DataGridView();
             this.lblScheduleDuration = new System.Windows.Forms.Label();
             this.CBStaffName = new System.Windows.Forms.ComboBox();
-            this.workerBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.staff_IDTextBox = new System.Windows.Forms.TextBox();
             this.phone_TextBox = new System.Windows.Forms.TextBox();
             this.clientTab = new System.Windows.Forms.TabPage();
+            this.classDataGridView = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.classDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientNameCmbBox = new System.Windows.Forms.ComboBox();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.cbindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.cbindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -92,11 +86,9 @@
             this.genderTextBox = new System.Windows.Forms.TextBox();
             this.ageTextBox = new System.Windows.Forms.TextBox();
             this.clientTableAdapter = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.ClientTableAdapter();
-            this.classTableAdapter = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.ClassTableAdapter();
             this.workerTableAdapter = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.WorkerTableAdapter();
             this.tableAdapterManager = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.TableAdapterManager();
             this.cPSC285S23BDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             client_IDLabel = new System.Windows.Forms.Label();
             clientNameLabel = new System.Windows.Forms.Label();
             genderLabel = new System.Windows.Forms.Label();
@@ -106,20 +98,18 @@
             phone_Label = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.workersTab.SuspendLayout();
+            this.schedulePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workerBindingNavigator)).BeginInit();
             this.workerBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPSC285S23BDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleDataGridView)).BeginInit();
             this.clientTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingNavigator)).BeginInit();
             this.clientBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cPSC285S23BDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // client_IDLabel
@@ -199,11 +189,9 @@
             // 
             // workersTab
             // 
+            this.workersTab.Controls.Add(this.schedulePanel);
             this.workersTab.Controls.Add(this.workerBindingNavigator);
-            this.workersTab.Controls.Add(this.dataGridView1);
-            this.workersTab.Controls.Add(this.rbNextMonth);
-            this.workersTab.Controls.Add(this.rbNextWeek);
-            this.workersTab.Controls.Add(this.rbCurrentDay);
+            this.workersTab.Controls.Add(this.scheduleDataGridView);
             this.workersTab.Controls.Add(this.lblScheduleDuration);
             this.workersTab.Controls.Add(this.CBStaffName);
             this.workersTab.Controls.Add(staff_IDLabel);
@@ -220,6 +208,49 @@
             this.workersTab.Text = "workers";
             this.workersTab.UseVisualStyleBackColor = true;
             // 
+            // schedulePanel
+            // 
+            this.schedulePanel.Controls.Add(this.rbNextMonth);
+            this.schedulePanel.Controls.Add(this.rbCurrentDay);
+            this.schedulePanel.Controls.Add(this.rbNextWeek);
+            this.schedulePanel.Location = new System.Drawing.Point(997, 126);
+            this.schedulePanel.Name = "schedulePanel";
+            this.schedulePanel.Size = new System.Drawing.Size(198, 150);
+            this.schedulePanel.TabIndex = 13;
+            // 
+            // rbNextMonth
+            // 
+            this.rbNextMonth.AutoSize = true;
+            this.rbNextMonth.Location = new System.Drawing.Point(22, 93);
+            this.rbNextMonth.Name = "rbNextMonth";
+            this.rbNextMonth.Size = new System.Drawing.Size(153, 29);
+            this.rbNextMonth.TabIndex = 10;
+            this.rbNextMonth.TabStop = true;
+            this.rbNextMonth.Text = "Next Month";
+            this.rbNextMonth.UseVisualStyleBackColor = true;
+            // 
+            // rbCurrentDay
+            // 
+            this.rbCurrentDay.AutoSize = true;
+            this.rbCurrentDay.Location = new System.Drawing.Point(22, 23);
+            this.rbCurrentDay.Name = "rbCurrentDay";
+            this.rbCurrentDay.Size = new System.Drawing.Size(158, 29);
+            this.rbCurrentDay.TabIndex = 8;
+            this.rbCurrentDay.TabStop = true;
+            this.rbCurrentDay.Text = "Current Day";
+            this.rbCurrentDay.UseVisualStyleBackColor = true;
+            // 
+            // rbNextWeek
+            // 
+            this.rbNextWeek.AutoSize = true;
+            this.rbNextWeek.Location = new System.Drawing.Point(22, 58);
+            this.rbNextWeek.Name = "rbNextWeek";
+            this.rbNextWeek.Size = new System.Drawing.Size(148, 29);
+            this.rbNextWeek.TabIndex = 9;
+            this.rbNextWeek.TabStop = true;
+            this.rbNextWeek.Text = "Next Week";
+            this.rbNextWeek.UseVisualStyleBackColor = true;
+            // 
             // workerBindingNavigator
             // 
             this.workerBindingNavigator.AddNewItem = this.wbindingNavigatorAddNewItem;
@@ -227,6 +258,7 @@
             this.workerBindingNavigator.CountItem = this.wbindingNavigatorCountItem;
             this.workerBindingNavigator.DeleteItem = this.wbindingNavigatorDeleteItem;
             this.workerBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
+            this.workerBindingNavigator.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.workerBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.wbindingNavigatorMoveFirstItem, this.wbindingNavigatorMovePreviousItem, this.wbindingNavigatorSeparator, this.wbindingNavigatorPositionItem, this.wbindingNavigatorCountItem, this.wbindingNavigatorSeparator1, this.wbindingNavigatorMoveNextItem, this.wbindingNavigatorMoveLastItem, this.wbindingNavigatorSeparator2, this.wbindingNavigatorAddNewItem, this.wbindingNavigatorDeleteItem, this.workerBindingNavigatorSaveItem });
             this.workerBindingNavigator.Location = new System.Drawing.Point(9, 6);
             this.workerBindingNavigator.MoveFirstItem = this.wbindingNavigatorMoveFirstItem;
@@ -236,7 +268,7 @@
             this.workerBindingNavigator.Name = "workerBindingNavigator";
             this.workerBindingNavigator.PositionItem = this.wbindingNavigatorPositionItem;
             this.workerBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.workerBindingNavigator.Size = new System.Drawing.Size(314, 35);
+            this.workerBindingNavigator.Size = new System.Drawing.Size(405, 39);
             this.workerBindingNavigator.Stretch = true;
             this.workerBindingNavigator.TabIndex = 1;
             this.workerBindingNavigator.Text = "bindingNavigator1";
@@ -247,7 +279,7 @@
             this.wbindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("wbindingNavigatorAddNewItem.Image")));
             this.wbindingNavigatorAddNewItem.Name = "wbindingNavigatorAddNewItem";
             this.wbindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.wbindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 32);
+            this.wbindingNavigatorAddNewItem.Size = new System.Drawing.Size(36, 36);
             this.wbindingNavigatorAddNewItem.Text = "Add new";
             // 
             // workerBindingSource
@@ -264,7 +296,7 @@
             // wbindingNavigatorCountItem
             // 
             this.wbindingNavigatorCountItem.Name = "wbindingNavigatorCountItem";
-            this.wbindingNavigatorCountItem.Size = new System.Drawing.Size(71, 32);
+            this.wbindingNavigatorCountItem.Size = new System.Drawing.Size(71, 36);
             this.wbindingNavigatorCountItem.Text = "of {0}";
             this.wbindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -274,7 +306,7 @@
             this.wbindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("wbindingNavigatorDeleteItem.Image")));
             this.wbindingNavigatorDeleteItem.Name = "wbindingNavigatorDeleteItem";
             this.wbindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.wbindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 32);
+            this.wbindingNavigatorDeleteItem.Size = new System.Drawing.Size(36, 36);
             this.wbindingNavigatorDeleteItem.Text = "Delete";
             // 
             // wbindingNavigatorMoveFirstItem
@@ -283,7 +315,7 @@
             this.wbindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("wbindingNavigatorMoveFirstItem.Image")));
             this.wbindingNavigatorMoveFirstItem.Name = "wbindingNavigatorMoveFirstItem";
             this.wbindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.wbindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 32);
+            this.wbindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(36, 36);
             this.wbindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // wbindingNavigatorMovePreviousItem
@@ -292,13 +324,13 @@
             this.wbindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("wbindingNavigatorMovePreviousItem.Image")));
             this.wbindingNavigatorMovePreviousItem.Name = "wbindingNavigatorMovePreviousItem";
             this.wbindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.wbindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 32);
+            this.wbindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(36, 36);
             this.wbindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // wbindingNavigatorSeparator
             // 
             this.wbindingNavigatorSeparator.Name = "wbindingNavigatorSeparator";
-            this.wbindingNavigatorSeparator.Size = new System.Drawing.Size(6, 35);
+            this.wbindingNavigatorSeparator.Size = new System.Drawing.Size(6, 39);
             // 
             // wbindingNavigatorPositionItem
             // 
@@ -312,7 +344,7 @@
             // wbindingNavigatorSeparator1
             // 
             this.wbindingNavigatorSeparator1.Name = "wbindingNavigatorSeparator1";
-            this.wbindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 35);
+            this.wbindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // wbindingNavigatorMoveNextItem
             // 
@@ -320,7 +352,7 @@
             this.wbindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("wbindingNavigatorMoveNextItem.Image")));
             this.wbindingNavigatorMoveNextItem.Name = "wbindingNavigatorMoveNextItem";
             this.wbindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.wbindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 32);
+            this.wbindingNavigatorMoveNextItem.Size = new System.Drawing.Size(36, 36);
             this.wbindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // wbindingNavigatorMoveLastItem
@@ -329,71 +361,36 @@
             this.wbindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("wbindingNavigatorMoveLastItem.Image")));
             this.wbindingNavigatorMoveLastItem.Name = "wbindingNavigatorMoveLastItem";
             this.wbindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.wbindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 32);
+            this.wbindingNavigatorMoveLastItem.Size = new System.Drawing.Size(36, 36);
             this.wbindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // wbindingNavigatorSeparator2
             // 
             this.wbindingNavigatorSeparator2.Name = "wbindingNavigatorSeparator2";
-            this.wbindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 35);
+            this.wbindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // workerBindingNavigatorSaveItem
             // 
             this.workerBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.workerBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("workerBindingNavigatorSaveItem.Image")));
             this.workerBindingNavigatorSaveItem.Name = "workerBindingNavigatorSaveItem";
-            this.workerBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 32);
+            this.workerBindingNavigatorSaveItem.Size = new System.Drawing.Size(36, 36);
             this.workerBindingNavigatorSaveItem.Text = "Save Data";
-            this.workerBindingNavigatorSaveItem.Click += new System.EventHandler(this.workerBindingNavigatorSaveItem_Click_1);
+            this.workerBindingNavigatorSaveItem.Click += new System.EventHandler(this.workerBindingNavigatorSaveItem_Click);
             // 
-            // dataGridView1
+            // scheduleDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 327);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1256, 605);
-            this.dataGridView1.TabIndex = 11;
-            // 
-            // rbNextMonth
-            // 
-            this.rbNextMonth.AutoSize = true;
-            this.rbNextMonth.Location = new System.Drawing.Point(1017, 227);
-            this.rbNextMonth.Name = "rbNextMonth";
-            this.rbNextMonth.Size = new System.Drawing.Size(153, 29);
-            this.rbNextMonth.TabIndex = 10;
-            this.rbNextMonth.TabStop = true;
-            this.rbNextMonth.Text = "Next Month";
-            this.rbNextMonth.UseVisualStyleBackColor = true;
-            this.rbNextMonth.CheckedChanged += new System.EventHandler(this.rbNextMonth_CheckedChanged);
-            // 
-            // rbNextWeek
-            // 
-            this.rbNextWeek.AutoSize = true;
-            this.rbNextWeek.Location = new System.Drawing.Point(1017, 178);
-            this.rbNextWeek.Name = "rbNextWeek";
-            this.rbNextWeek.Size = new System.Drawing.Size(148, 29);
-            this.rbNextWeek.TabIndex = 9;
-            this.rbNextWeek.TabStop = true;
-            this.rbNextWeek.Text = "Next Week";
-            this.rbNextWeek.UseVisualStyleBackColor = true;
-            this.rbNextWeek.CheckedChanged += new System.EventHandler(this.rbNextWeek_CheckedChanged);
-            // 
-            // rbCurrentDay
-            // 
-            this.rbCurrentDay.AutoSize = true;
-            this.rbCurrentDay.Location = new System.Drawing.Point(1017, 132);
-            this.rbCurrentDay.Name = "rbCurrentDay";
-            this.rbCurrentDay.Size = new System.Drawing.Size(158, 29);
-            this.rbCurrentDay.TabIndex = 8;
-            this.rbCurrentDay.TabStop = true;
-            this.rbCurrentDay.Text = "Current Day";
-            this.rbCurrentDay.UseVisualStyleBackColor = true;
-            this.rbCurrentDay.CheckedChanged += new System.EventHandler(this.rbCurrentDay_CheckedChanged);
+            this.scheduleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.scheduleDataGridView.Location = new System.Drawing.Point(9, 327);
+            this.scheduleDataGridView.Name = "scheduleDataGridView";
+            this.scheduleDataGridView.RowHeadersWidth = 82;
+            this.scheduleDataGridView.Size = new System.Drawing.Size(1256, 605);
+            this.scheduleDataGridView.TabIndex = 11;
             // 
             // lblScheduleDuration
             // 
             this.lblScheduleDuration.AutoSize = true;
-            this.lblScheduleDuration.Location = new System.Drawing.Point(1017, 80);
+            this.lblScheduleDuration.Location = new System.Drawing.Point(997, 75);
             this.lblScheduleDuration.Name = "lblScheduleDuration";
             this.lblScheduleDuration.Size = new System.Drawing.Size(189, 25);
             this.lblScheduleDuration.TabIndex = 7;
@@ -401,18 +398,13 @@
             // 
             // CBStaffName
             // 
-            this.CBStaffName.DataSource = this.workerBindingSource2;
+            this.CBStaffName.DataSource = this.workerBindingSource;
             this.CBStaffName.DisplayMember = "Name";
             this.CBStaffName.FormattingEnabled = true;
             this.CBStaffName.Location = new System.Drawing.Point(156, 106);
             this.CBStaffName.Name = "CBStaffName";
             this.CBStaffName.Size = new System.Drawing.Size(212, 33);
             this.CBStaffName.TabIndex = 6;
-            // 
-            // workerBindingSource2
-            // 
-            this.workerBindingSource2.DataMember = "Worker";
-            this.workerBindingSource2.DataSource = this.cPSC285S23BDataSet;
             // 
             // staff_IDTextBox
             // 
@@ -432,9 +424,9 @@
             // 
             // clientTab
             // 
+            this.clientTab.Controls.Add(this.classDataGridView);
             this.clientTab.Controls.Add(this.button2);
             this.clientTab.Controls.Add(this.button1);
-            this.clientTab.Controls.Add(this.classDataGridView);
             this.clientTab.Controls.Add(this.clientNameCmbBox);
             this.clientTab.Controls.Add(this.clientBindingNavigator);
             this.clientTab.Controls.Add(client_IDLabel);
@@ -452,6 +444,15 @@
             this.clientTab.TabIndex = 1;
             this.clientTab.Text = "clients";
             this.clientTab.UseVisualStyleBackColor = true;
+            // 
+            // classDataGridView
+            // 
+            this.classDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.classDataGridView.Location = new System.Drawing.Point(47, 300);
+            this.classDataGridView.Name = "classDataGridView";
+            this.classDataGridView.RowTemplate.Height = 33;
+            this.classDataGridView.Size = new System.Drawing.Size(1168, 588);
+            this.classDataGridView.TabIndex = 13;
             // 
             // button2
             // 
@@ -471,70 +472,6 @@
             this.button1.Text = "Add Client";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // classDataGridView
-            // 
-            this.classDataGridView.AutoGenerateColumns = false;
-            this.classDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.classDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.dataGridViewTextBoxColumn1, this.dataGridViewTextBoxColumn2, this.dataGridViewTextBoxColumn3, this.dataGridViewTextBoxColumn4, this.dataGridViewTextBoxColumn5 });
-            this.classDataGridView.DataSource = this.classBindingSource;
-            this.classDataGridView.Location = new System.Drawing.Point(38, 277);
-            this.classDataGridView.Name = "classDataGridView";
-            this.classDataGridView.RowHeadersWidth = 82;
-            this.classDataGridView.RowTemplate.Height = 33;
-            this.classDataGridView.Size = new System.Drawing.Size(1406, 471);
-            this.classDataGridView.TabIndex = 10;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Class_ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Class_ID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Date";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Date";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "StartTime";
-            this.dataGridViewTextBoxColumn3.HeaderText = "StartTime";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Staff_ID";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Staff_ID";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Client_ID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Client_ID";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 200;
-            // 
-            // classBindingSource
-            // 
-            this.classBindingSource.DataMember = "Class_Client_Client_ID_fk";
-            this.classBindingSource.DataSource = this.clientBindingSource;
-            // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataMember = "Client";
-            this.clientBindingSource.DataSource = this.cPSC285S23BDataSet;
-            // 
             // clientNameCmbBox
             // 
             this.clientNameCmbBox.DataSource = this.clientBindingSource;
@@ -545,6 +482,11 @@
             this.clientNameCmbBox.Size = new System.Drawing.Size(264, 33);
             this.clientNameCmbBox.TabIndex = 8;
             // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataMember = "Client";
+            this.clientBindingSource.DataSource = this.cPSC285S23BDataSet;
+            // 
             // clientBindingNavigator
             // 
             this.clientBindingNavigator.AddNewItem = this.cbindingNavigatorAddNewItem;
@@ -552,6 +494,7 @@
             this.clientBindingNavigator.CountItem = this.cbindingNavigatorCountItem;
             this.clientBindingNavigator.DeleteItem = this.cbindingNavigatorDeleteItem;
             this.clientBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
+            this.clientBindingNavigator.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.clientBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.cbindingNavigatorMoveFirstItem, this.cbindingNavigatorMovePreviousItem, this.cbindingNavigatorSeparator, this.cbindingNavigatorPositionItem, this.cbindingNavigatorCountItem, this.cbindingNavigatorSeparator1, this.cbindingNavigatorMoveNextItem, this.cbindingNavigatorMoveLastItem, this.cbindingNavigatorSeparator2, this.cbindingNavigatorAddNewItem, this.cbindingNavigatorDeleteItem, this.clientBindingNavigatorSaveItem });
             this.clientBindingNavigator.Location = new System.Drawing.Point(17, 6);
             this.clientBindingNavigator.MoveFirstItem = this.cbindingNavigatorMoveFirstItem;
@@ -561,7 +504,7 @@
             this.clientBindingNavigator.Name = "clientBindingNavigator";
             this.clientBindingNavigator.PositionItem = this.cbindingNavigatorPositionItem;
             this.clientBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.clientBindingNavigator.Size = new System.Drawing.Size(314, 39);
+            this.clientBindingNavigator.Size = new System.Drawing.Size(405, 39);
             this.clientBindingNavigator.TabIndex = 1;
             this.clientBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -571,7 +514,7 @@
             this.cbindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("cbindingNavigatorAddNewItem.Image")));
             this.cbindingNavigatorAddNewItem.Name = "cbindingNavigatorAddNewItem";
             this.cbindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.cbindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 36);
+            this.cbindingNavigatorAddNewItem.Size = new System.Drawing.Size(36, 36);
             this.cbindingNavigatorAddNewItem.Text = "Add new";
             // 
             // cbindingNavigatorCountItem
@@ -587,7 +530,7 @@
             this.cbindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("cbindingNavigatorDeleteItem.Image")));
             this.cbindingNavigatorDeleteItem.Name = "cbindingNavigatorDeleteItem";
             this.cbindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.cbindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 36);
+            this.cbindingNavigatorDeleteItem.Size = new System.Drawing.Size(36, 36);
             this.cbindingNavigatorDeleteItem.Text = "Delete";
             // 
             // cbindingNavigatorMoveFirstItem
@@ -596,7 +539,7 @@
             this.cbindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("cbindingNavigatorMoveFirstItem.Image")));
             this.cbindingNavigatorMoveFirstItem.Name = "cbindingNavigatorMoveFirstItem";
             this.cbindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.cbindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 36);
+            this.cbindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(36, 36);
             this.cbindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // cbindingNavigatorMovePreviousItem
@@ -605,7 +548,7 @@
             this.cbindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("cbindingNavigatorMovePreviousItem.Image")));
             this.cbindingNavigatorMovePreviousItem.Name = "cbindingNavigatorMovePreviousItem";
             this.cbindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.cbindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 36);
+            this.cbindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(36, 36);
             this.cbindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // cbindingNavigatorSeparator
@@ -633,7 +576,7 @@
             this.cbindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("cbindingNavigatorMoveNextItem.Image")));
             this.cbindingNavigatorMoveNextItem.Name = "cbindingNavigatorMoveNextItem";
             this.cbindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.cbindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 36);
+            this.cbindingNavigatorMoveNextItem.Size = new System.Drawing.Size(36, 36);
             this.cbindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // cbindingNavigatorMoveLastItem
@@ -642,7 +585,7 @@
             this.cbindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("cbindingNavigatorMoveLastItem.Image")));
             this.cbindingNavigatorMoveLastItem.Name = "cbindingNavigatorMoveLastItem";
             this.cbindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.cbindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 36);
+            this.cbindingNavigatorMoveLastItem.Size = new System.Drawing.Size(36, 36);
             this.cbindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // cbindingNavigatorSeparator2
@@ -655,7 +598,7 @@
             this.clientBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.clientBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("clientBindingNavigatorSaveItem.Image")));
             this.clientBindingNavigatorSaveItem.Name = "clientBindingNavigatorSaveItem";
-            this.clientBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 36);
+            this.clientBindingNavigatorSaveItem.Size = new System.Drawing.Size(36, 36);
             this.clientBindingNavigatorSaveItem.Text = "Save Data";
             this.clientBindingNavigatorSaveItem.Click += new System.EventHandler(this.clientBindingNavigatorSaveItem_Click);
             // 
@@ -687,10 +630,6 @@
             // 
             this.clientTableAdapter.ClearBeforeFill = true;
             // 
-            // classTableAdapter
-            // 
-            this.classTableAdapter.ClearBeforeFill = true;
-            // 
             // workerTableAdapter
             // 
             this.workerTableAdapter.ClearBeforeFill = true;
@@ -708,11 +647,6 @@
             this.cPSC285S23BDataSetBindingSource.DataSource = this.cPSC285S23BDataSet;
             this.cPSC285S23BDataSetBindingSource.Position = 0;
             // 
-            // workerBindingSource1
-            // 
-            this.workerBindingSource1.DataMember = "Worker";
-            this.workerBindingSource1.DataSource = this.cPSC285S23BDataSetBindingSource;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -726,25 +660,28 @@
             this.tabControl1.ResumeLayout(false);
             this.workersTab.ResumeLayout(false);
             this.workersTab.PerformLayout();
+            this.schedulePanel.ResumeLayout(false);
+            this.schedulePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workerBindingNavigator)).EndInit();
             this.workerBindingNavigator.ResumeLayout(false);
             this.workerBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cPSC285S23BDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleDataGridView)).EndInit();
             this.clientTab.ResumeLayout(false);
             this.clientTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingNavigator)).EndInit();
             this.clientBindingNavigator.ResumeLayout(false);
             this.clientBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cPSC285S23BDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workerBindingSource1)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Panel schedulePanel;
+
+        private System.Windows.Forms.DataGridView classDataGridView;
 
         private System.Windows.Forms.Button button2;
 
@@ -757,7 +694,6 @@
         #endregion
 
         private CPSC285S23BDataSet cPSC285S23BDataSet;
-        private System.Windows.Forms.BindingSource workerBindingSource;
         private CPSC285S23BDataSetTableAdapters.WorkerTableAdapter workerTableAdapter;
         private CPSC285S23BDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator workerBindingNavigator;
@@ -774,12 +710,11 @@
         private System.Windows.Forms.ToolStripSeparator wbindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton workerBindingNavigatorSaveItem;
         private System.Windows.Forms.ComboBox CBStaffName;
-        private System.Windows.Forms.BindingSource workerBindingSource2;
+        private System.Windows.Forms.BindingSource workerBindingSource;
         private System.Windows.Forms.TextBox staff_IDTextBox;
         private System.Windows.Forms.TextBox phone_TextBox;
         private System.Windows.Forms.BindingSource cPSC285S23BDataSetBindingSource;
-        private System.Windows.Forms.BindingSource workerBindingSource1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView scheduleDataGridView;
         private System.Windows.Forms.RadioButton rbNextMonth;
         private System.Windows.Forms.RadioButton rbNextWeek;
         private System.Windows.Forms.RadioButton rbCurrentDay;
@@ -804,14 +739,6 @@
         private System.Windows.Forms.TextBox genderTextBox;
         private System.Windows.Forms.TextBox ageTextBox;
         private System.Windows.Forms.ComboBox clientNameCmbBox;
-        private System.Windows.Forms.BindingSource classBindingSource;
-        private CPSC285S23BDataSetTableAdapters.ClassTableAdapter classTableAdapter;
-        private System.Windows.Forms.DataGridView classDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
 

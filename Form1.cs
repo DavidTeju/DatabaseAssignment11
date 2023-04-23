@@ -14,6 +14,8 @@ namespace DatabaseAssignment11
 {
     public partial class Form1 : Form
     {
+        private string _strConn = "Data Source=cissql;Initial Catalog=CPSC285S23B;Integrated Security=True";
+
         public Form1()
         {
             InitializeComponent();
@@ -31,15 +33,6 @@ namespace DatabaseAssignment11
             this.Validate();
             this.workerBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.cPSC285S23BDataSet);
-
-        }
-
-        private void workerBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.workerBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.cPSC285S23BDataSet);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -47,88 +40,67 @@ namespace DatabaseAssignment11
             try
             {
                 this.workerTableAdapter.Fill(this.cPSC285S23BDataSet.Worker);
-                // TODO: This line of code loads data into the 'cPSC285S23BDataSet.Class' table. You can move, or remove it, as needed.
-                this.classTableAdapter.Fill(this.cPSC285S23BDataSet.Class);
-                // TODO: This line of code loads data into the 'cPSC285S23BDataSet.Client' table. You can move, or remove it, as needed.
                 this.clientTableAdapter.Fill(this.cPSC285S23BDataSet.Client);
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+            rbCurrentDay.Checked = true;
+
+            rbCurrentDay.CheckedChanged += (s, args) => UpdateSchedule();
+            rbNextWeek.CheckedChanged += (s, args) => UpdateSchedule();
+            rbNextMonth.CheckedChanged += (s, args) => UpdateSchedule();
+
+            workerBindingSource.CurrentChanged += (s, args) => UpdateSchedule();
+            
+            UpdateClassGrid();
+            UpdateSchedule();
         }
 
-        private void rbCurrentDay_CheckedChanged(object sender, EventArgs e)
+        private void UpdateSchedule()
         {
-            String strConn = "Data Source=cissql;Initial Catalog=CPSC285S23B;Integrated Security=True";
+            var rbToInt = new Dictionary<RadioButton, int>
+            {
+                { rbCurrentDay, 0 },
+                { rbNextWeek, 7 },
+                { rbNextMonth, 30 }
+            };
 
-            SqlConnection cnnSample;
-            SqlCommand cmdGetData;
-            DataTable tbl = new DataTable();
+            int days = 0;
 
-            String strSQL;
+            foreach (Control control in schedulePanel.Controls)
+            {
+                if (control is RadioButton button && button.Checked)
+                {
+                    days = rbToInt[button];
+                    break;
+                }
+            }
+
             string todayDate = DateTime.Now.ToString("MM/dd/yyyy");
+            string weekDate = DateTime.Now.AddDays(days).ToString("MM/dd/yyyy");
 
-            strSQL = $@"select Class.Date, StartTime, C.Name 
-                                from Class inner join Client C on C.Client_ID = Class.Client_ID inner join Worker on Class.Staff_ID = Worker.Staff_ID
-                                where Date = '{todayDate}' and Class.Staff_ID = '{staff_IDTextBox.Text}'";
-            MessageBox.Show(strSQL);
-
-            try
-            {
-                cnnSample = new SqlConnection(strConn);
-                cnnSample.Open();
-
-                cmdGetData = new SqlCommand();
-
-                cmdGetData.Connection = cnnSample;
-                cmdGetData.CommandType = CommandType.Text;
-                cmdGetData.CommandText = strSQL;
-
-                tbl.Load(cmdGetData.ExecuteReader());
-                dataGridView1.DataSource = tbl.DefaultView;
-                cnnSample.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void rbNextWeek_CheckedChanged(object sender, EventArgs e)
-        {
-            String strConn = "Data Source=cissql;Initial Catalog=CPSC285S23B;Integrated Security=True";
-
-            SqlConnection cnnSample;
-            SqlCommand cmdGetData;
-            DataTable tbl = new DataTable();
-
-            String strSQL;
-            DateTime todayDate = DateTime.Now;
-            DateTime weekDate = todayDate.AddDays(7);
-
-            strSQL = $@"select Class.Date, StartTime, C.Name 
+            string strSql = $@"select Class.Date, StartTime, C.Name 
                                 from Class inner join Client C on C.Client_ID = Class.Client_ID inner join Worker on Class.Staff_ID = Worker.Staff_ID
                                 where Date BETWEEN '{todayDate}' and '{weekDate}' and Class.Staff_ID = '{staff_IDTextBox.Text}'";
-            MessageBox.Show(strSQL);
+            LoadDataGrid(strSql, scheduleDataGridView);
+        }
 
+
+        private void LoadDataGrid(string sqlQuery, DataGridView toFill)
+        {
             try
             {
-                cnnSample = new SqlConnection(strConn);
-                cnnSample.Open();
-
-                cmdGetData = new SqlCommand();
-
-                cmdGetData.Connection = cnnSample;
-                cmdGetData.CommandType = CommandType.Text;
-                cmdGetData.CommandText = strSQL;
-
+                var sqlConnection = new SqlConnection(_strConn);
+                sqlConnection.Open();
+                var cmdGetData = new SqlCommand(sqlQuery, sqlConnection);
+                DataTable tbl = new DataTable();
                 tbl.Load(cmdGetData.ExecuteReader());
-                dataGridView1.DataSource = tbl.DefaultView;
-                cnnSample.Close();
+                sqlConnection.Close();
 
+                toFill.DataSource = tbl.DefaultView;
             }
             catch (Exception ex)
             {
@@ -136,43 +108,13 @@ namespace DatabaseAssignment11
             }
         }
 
-        private void rbNextMonth_CheckedChanged(object sender, EventArgs e)
+        private void UpdateClassGrid()
         {
-            String strConn = "Data Source=cissql;Initial Catalog=CPSC285S23B;Integrated Security=True";
-
-            SqlConnection cnnSample;
-            SqlCommand cmdGetData;
-            DataTable tbl = new DataTable();
-
-            String strSQL;
-            DateTime todayDate = DateTime.Now;
-            DateTime monthDate = todayDate.AddDays(30);
-
-            strSQL = $@"select Class.Date, StartTime, C.Name 
+            string strSql = $@"select Class.Date, StartTime, Worker.Name 
                                 from Class inner join Client C on C.Client_ID = Class.Client_ID inner join Worker on Class.Staff_ID = Worker.Staff_ID
-                                where Date BETWEEN '{todayDate}' and '{monthDate}' and Class.Staff_ID = '{staff_IDTextBox.Text}'";
-            MessageBox.Show(strSQL);
+                                where C.Client_ID = '{client_IDTextBox.Text}'";
 
-            try
-            {
-                cnnSample = new SqlConnection(strConn);
-                cnnSample.Open();
-
-                cmdGetData = new SqlCommand();
-
-                cmdGetData.Connection = cnnSample;
-                cmdGetData.CommandType = CommandType.Text;
-                cmdGetData.CommandText = strSQL;
-
-                tbl.Load(cmdGetData.ExecuteReader());
-                dataGridView1.DataSource = tbl.DefaultView;
-                cnnSample.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            LoadDataGrid(strSql, classDataGridView);
         }
     }
 }
