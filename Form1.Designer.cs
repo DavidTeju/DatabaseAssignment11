@@ -37,9 +37,13 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.workersTab = new System.Windows.Forms.TabPage();
             this.clientTab = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.classDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cPSC285S23BDataSet = new DatabaseAssignment11.CPSC285S23BDataSet();
@@ -63,6 +67,7 @@
             this.clientTableAdapter = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.ClientTableAdapter();
             this.tableAdapterManager = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.TableAdapterManager();
             this.classTableAdapter = new DatabaseAssignment11.CPSC285S23BDataSetTableAdapters.ClassTableAdapter();
+            this.button2 = new System.Windows.Forms.Button();
             client_IDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             genderLabel = new System.Windows.Forms.Label();
@@ -80,40 +85,36 @@
             // client_IDLabel
             // 
             client_IDLabel.AutoSize = true;
-            client_IDLabel.Location = new System.Drawing.Point(14, 40);
-            client_IDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            client_IDLabel.Location = new System.Drawing.Point(28, 76);
             client_IDLabel.Name = "client_IDLabel";
-            client_IDLabel.Size = new System.Drawing.Size(50, 13);
+            client_IDLabel.Size = new System.Drawing.Size(99, 25);
             client_IDLabel.TabIndex = 0;
             client_IDLabel.Text = "Client ID:";
             // 
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(14, 59);
-            nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            nameLabel.Location = new System.Drawing.Point(28, 113);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(38, 13);
+            nameLabel.Size = new System.Drawing.Size(74, 25);
             nameLabel.TabIndex = 2;
             nameLabel.Text = "Name:";
             // 
             // genderLabel
             // 
             genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(14, 78);
-            genderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            genderLabel.Location = new System.Drawing.Point(28, 150);
             genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(45, 13);
+            genderLabel.Size = new System.Drawing.Size(89, 25);
             genderLabel.TabIndex = 4;
             genderLabel.Text = "Gender:";
             // 
             // ageLabel
             // 
             ageLabel.AutoSize = true;
-            ageLabel.Location = new System.Drawing.Point(14, 97);
-            ageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            ageLabel.Location = new System.Drawing.Point(28, 187);
             ageLabel.Name = "ageLabel";
-            ageLabel.Size = new System.Drawing.Size(29, 13);
+            ageLabel.Size = new System.Drawing.Size(56, 25);
             ageLabel.TabIndex = 6;
             ageLabel.Text = "Age:";
             // 
@@ -123,17 +124,19 @@
             this.tabControl1.Controls.Add(this.clientTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.Size = new System.Drawing.Size(1600, 865);
             this.tabControl1.TabIndex = 0;
             // 
             // workersTab
             // 
-            this.workersTab.Location = new System.Drawing.Point(4, 22);
+            this.workersTab.Location = new System.Drawing.Point(8, 39);
+            this.workersTab.Margin = new System.Windows.Forms.Padding(6);
             this.workersTab.Name = "workersTab";
-            this.workersTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.workersTab.Size = new System.Drawing.Size(792, 424);
+            this.workersTab.Padding = new System.Windows.Forms.Padding(6);
+            this.workersTab.Size = new System.Drawing.Size(1584, 818);
             this.workersTab.TabIndex = 0;
             this.workersTab.Text = "workers";
             this.workersTab.UseVisualStyleBackColor = true;
@@ -152,44 +155,77 @@
             this.clientTab.Controls.Add(this.genderTextBox);
             this.clientTab.Controls.Add(ageLabel);
             this.clientTab.Controls.Add(this.ageTextBox);
-            this.clientTab.Location = new System.Drawing.Point(4, 22);
+            this.clientTab.Location = new System.Drawing.Point(8, 39);
+            this.clientTab.Margin = new System.Windows.Forms.Padding(6);
             this.clientTab.Name = "clientTab";
-            this.clientTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.clientTab.Size = new System.Drawing.Size(792, 424);
+            this.clientTab.Padding = new System.Windows.Forms.Padding(6);
+            this.clientTab.Size = new System.Drawing.Size(1584, 818);
             this.clientTab.TabIndex = 1;
             this.clientTab.Text = "clients";
             this.clientTab.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(456, 91);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 21);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Add Class";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(456, 57);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(911, 109);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 21);
+            this.button1.Size = new System.Drawing.Size(150, 40);
             this.button1.TabIndex = 11;
             this.button1.Text = "Add Client";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // classDataGridView
             // 
+            this.classDataGridView.AutoGenerateColumns = false;
             this.classDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.classDataGridView.Location = new System.Drawing.Point(19, 144);
-            this.classDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.classDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.dataGridViewTextBoxColumn1, this.dataGridViewTextBoxColumn2, this.dataGridViewTextBoxColumn3, this.dataGridViewTextBoxColumn4, this.dataGridViewTextBoxColumn5 });
+            this.classDataGridView.DataSource = this.classBindingSource;
+            this.classDataGridView.Location = new System.Drawing.Point(38, 277);
             this.classDataGridView.Name = "classDataGridView";
             this.classDataGridView.RowHeadersWidth = 82;
             this.classDataGridView.RowTemplate.Height = 33;
-            this.classDataGridView.Size = new System.Drawing.Size(703, 245);
+            this.classDataGridView.Size = new System.Drawing.Size(1406, 471);
             this.classDataGridView.TabIndex = 10;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Class_ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Class_ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 10;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Date";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Date";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 10;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "StartTime";
+            this.dataGridViewTextBoxColumn3.HeaderText = "StartTime";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 10;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Staff_ID";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Staff_ID";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 10;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Client_ID";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Client_ID";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 10;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 200;
             // 
             // classBindingSource
             // 
@@ -204,6 +240,7 @@
             // cPSC285S23BDataSet
             // 
             this.cPSC285S23BDataSet.DataSetName = "CPSC285S23BDataSet";
+            this.cPSC285S23BDataSet.Namespace = "http://tempuri.org/CPSC285S23BDataSet.xsd";
             this.cPSC285S23BDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comboBox1
@@ -211,10 +248,9 @@
             this.comboBox1.DataSource = this.clientBindingSource;
             this.comboBox1.DisplayMember = "Name";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(66, 57);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Location = new System.Drawing.Point(133, 110);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(134, 21);
+            this.comboBox1.Size = new System.Drawing.Size(264, 33);
             this.comboBox1.TabIndex = 8;
             // 
             // clientBindingNavigator
@@ -225,29 +261,16 @@
             this.clientBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
             this.clientBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
             this.clientBindingNavigator.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.clientBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.clientBindingNavigatorSaveItem});
-            this.clientBindingNavigator.Location = new System.Drawing.Point(3, 3);
+            this.clientBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.bindingNavigatorMoveFirstItem, this.bindingNavigatorMovePreviousItem, this.bindingNavigatorSeparator, this.bindingNavigatorPositionItem, this.bindingNavigatorCountItem, this.bindingNavigatorSeparator1, this.bindingNavigatorMoveNextItem, this.bindingNavigatorMoveLastItem, this.bindingNavigatorSeparator2, this.bindingNavigatorAddNewItem, this.bindingNavigatorDeleteItem, this.clientBindingNavigatorSaveItem });
+            this.clientBindingNavigator.Location = new System.Drawing.Point(6, 6);
             this.clientBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.clientBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.clientBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.clientBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.clientBindingNavigator.Name = "clientBindingNavigator";
-            this.clientBindingNavigator.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.clientBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
             this.clientBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.clientBindingNavigator.Size = new System.Drawing.Size(376, 39);
+            this.clientBindingNavigator.Size = new System.Drawing.Size(405, 39);
             this.clientBindingNavigator.TabIndex = 1;
             this.clientBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -263,7 +286,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 36);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(71, 36);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -304,7 +327,7 @@
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(27, 23);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 39);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
@@ -320,7 +343,8 @@
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(36, 36);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";            // 
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
             // bindingNavigatorMoveLastItem
             // 
             this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -347,28 +371,25 @@
             // client_IDTextBox
             // 
             this.client_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "Client_ID", true));
-            this.client_IDTextBox.Location = new System.Drawing.Point(66, 38);
-            this.client_IDTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.client_IDTextBox.Location = new System.Drawing.Point(133, 73);
             this.client_IDTextBox.Name = "client_IDTextBox";
-            this.client_IDTextBox.Size = new System.Drawing.Size(134, 20);
+            this.client_IDTextBox.Size = new System.Drawing.Size(264, 31);
             this.client_IDTextBox.TabIndex = 1;
             // 
             // genderTextBox
             // 
             this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "Gender", true));
-            this.genderTextBox.Location = new System.Drawing.Point(66, 76);
-            this.genderTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genderTextBox.Location = new System.Drawing.Point(133, 147);
             this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(134, 20);
+            this.genderTextBox.Size = new System.Drawing.Size(264, 31);
             this.genderTextBox.TabIndex = 5;
             // 
             // ageTextBox
             // 
             this.ageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "Age", true));
-            this.ageTextBox.Location = new System.Drawing.Point(66, 96);
-            this.ageTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ageTextBox.Location = new System.Drawing.Point(133, 184);
             this.ageTextBox.Name = "ageTextBox";
-            this.ageTextBox.Size = new System.Drawing.Size(134, 20);
+            this.ageTextBox.Size = new System.Drawing.Size(264, 31);
             this.ageTextBox.TabIndex = 7;
             // 
             // clientTableAdapter
@@ -387,12 +408,22 @@
             // 
             this.classTableAdapter.ClearBeforeFill = true;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(911, 175);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 40);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Add Class";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1600, 865);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -407,7 +438,6 @@
             this.clientBindingNavigator.ResumeLayout(false);
             this.clientBindingNavigator.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         private System.Windows.Forms.Button button2;
@@ -444,6 +474,11 @@
         private System.Windows.Forms.BindingSource classBindingSource;
         private CPSC285S23BDataSetTableAdapters.ClassTableAdapter classTableAdapter;
         private System.Windows.Forms.DataGridView classDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
 
