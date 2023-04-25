@@ -49,13 +49,25 @@ namespace DatabaseAssignment11
 
             rbCurrentDay.Checked = true;
 
-            rbCurrentDay.CheckedChanged += (s, args) => UpdateSchedule();
-            rbNextWeek.CheckedChanged += (s, args) => UpdateSchedule();
-            rbNextMonth.CheckedChanged += (s, args) => UpdateSchedule();
+            rbCurrentDay.CheckedChanged += UpdateSchedule;
+            rbNextWeek.CheckedChanged += UpdateSchedule;
+            rbNextMonth.CheckedChanged += UpdateSchedule;
 
-            workerBindingSource.CurrentChanged += (s, args) => UpdateSchedule();
-            
+            workerBindingSource.CurrentChanged += UpdateSchedule;
+
+            clientBindingSource.CurrentChanged += UpdateClassGrid;
+
             UpdateClassGrid();
+            UpdateSchedule();
+        }
+
+        private void UpdateClassGrid(object sender, EventArgs e)
+        {
+            UpdateClassGrid();
+        }
+
+        private void UpdateSchedule(object sender, EventArgs e)
+        {
             UpdateSchedule();
         }
 
@@ -80,11 +92,11 @@ namespace DatabaseAssignment11
             }
 
             string todayDate = DateTime.Now.ToString("MM/dd/yyyy");
-            string weekDate = DateTime.Now.AddDays(days).ToString("MM/dd/yyyy");
+            string laterDate = DateTime.Now.AddDays(days).ToString("MM/dd/yyyy");
 
             string strSql = $@"select Class.Date, StartTime, C.Name 
-                                from Class inner join Client C on C.Client_ID = Class.Client_ID inner join Worker on Class.Staff_ID = Worker.Staff_ID
-                                where Date BETWEEN '{todayDate}' and '{weekDate}' and Class.Staff_ID = '{staff_IDTextBox.Text}'";
+                                from Class inner join Client C on C.Client_ID = Class.Client_ID
+                                where Date BETWEEN '{todayDate}' and '{laterDate}' and Class.Staff_ID = '{staff_IDTextBox.Text}'";
             LoadDataGrid(strSql, scheduleDataGridView);
         }
 
@@ -110,11 +122,22 @@ namespace DatabaseAssignment11
 
         private void UpdateClassGrid()
         {
-            string strSql = $@"select Class.Date, StartTime, Worker.Name 
+            string strSql = $@"select Class.Date, Class.StartTime, Worker.Name 
                                 from Class inner join Client C on C.Client_ID = Class.Client_ID inner join Worker on Class.Staff_ID = Worker.Staff_ID
                                 where C.Client_ID = '{client_IDTextBox.Text}'";
 
             LoadDataGrid(strSql, classDataGridView);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var form = new AddClass(client_IDTextBox.Text);
+            form.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
