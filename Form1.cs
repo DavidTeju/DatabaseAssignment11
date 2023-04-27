@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+
 
 namespace DatabaseAssignment11
 {
@@ -48,30 +48,9 @@ namespace DatabaseAssignment11
             }
 
             rbCurrentDay.Checked = true;
-
-            rbCurrentDay.CheckedChanged += UpdateSchedule;
-            rbNextWeek.CheckedChanged += UpdateSchedule;
-            rbNextMonth.CheckedChanged += UpdateSchedule;
-
-            workerBindingSource.CurrentChanged += UpdateSchedule;
-
-            clientBindingSource.CurrentChanged += UpdateClassGrid;
-
-            UpdateClassGrid();
-            UpdateSchedule();
         }
 
-        private void UpdateClassGrid(object sender, EventArgs e)
-        {
-            UpdateClassGrid();
-        }
-
-        private void UpdateSchedule(object sender, EventArgs e)
-        {
-            UpdateSchedule();
-        }
-
-        private void UpdateSchedule()
+       private void UpdateSchedule()
         {
             var rbToInt = new Dictionary<RadioButton, int>
             {
@@ -90,43 +69,76 @@ namespace DatabaseAssignment11
                     break;
                 }
             }
+            SqlConnection cnnSample;
+            SqlCommand cmdGetData;
+            DataTable tbl = new DataTable();
 
-            string todayDate = DateTime.Now.ToString("MM/dd/yyyy");
-            string laterDate = DateTime.Now.AddDays(days).ToString("MM/dd/yyyy");
-
-            string strSql = $@"select Class.Date, StartTime, C.Name 
-                                from Class inner join Client C on C.Client_ID = Class.Client_ID
-                                where Date BETWEEN '{todayDate}' and '{laterDate}' and Class.Staff_ID = '{staff_IDTextBox.Text}'";
-            LoadDataGrid(strSql, scheduleDataGridView);
-        }
-
-
-        private void LoadDataGrid(string sqlQuery, DataGridView toFill)
-        {
+            
+            String todayDate = DateTime.Now.ToShortDateString();
+            String laterDate = DateTime.Now.AddDays(days).ToShortDateString();
+          
+            string strSql = "select Class.Date, Class.StartTime, C.Name " +
+                             " from Class inner join Client C on C.Client_ID = Class.Client_ID "+
+                              " where Date BETWEEN '" + todayDate +  "' and '" + laterDate + "' and Class.Staff_ID = '" + staff_IDTextBox.Text + "'";
+          
             try
             {
-                var sqlConnection = new SqlConnection(_strConn);
-                sqlConnection.Open();
-                var cmdGetData = new SqlCommand(sqlQuery, sqlConnection);
-                DataTable tbl = new DataTable();
-                tbl.Load(cmdGetData.ExecuteReader());
-                sqlConnection.Close();
+                cnnSample = new SqlConnection(_strConn);
+                cnnSample.Open();
 
-                toFill.DataSource = tbl.DefaultView;
+                cmdGetData = new SqlCommand();
+
+                cmdGetData.Connection = cnnSample;
+                cmdGetData.CommandType = CommandType.Text;
+                cmdGetData.CommandText = strSql;
+
+                tbl.Load(cmdGetData.ExecuteReader());
+                scheduleDataGridView.DataSource = tbl.DefaultView; 
+
+                cnnSample.Close();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+       
+        
 
         private void UpdateClassGrid()
         {
-            string strSql = $@"select Class.Date, Class.StartTime, Worker.Name 
-                                from Class inner join Client C on C.Client_ID = Class.Client_ID inner join Worker on Class.Staff_ID = Worker.Staff_ID
-                                where C.Client_ID = '{client_IDTextBox.Text}'";
+            SqlConnection cnnSample;
+            SqlCommand cmdGetData;
+            DataTable tbl = new DataTable();
 
-            LoadDataGrid(strSql, classDataGridView);
+            string strSql = "select Class.Date, Class.StartTime, Worker.Name " +
+                              " from Class inner join Client C on C.Client_ID = Class.Client_ID inner join Worker on Class.Staff_ID = Worker.Staff_ID " +
+                              "  where C.Client_ID = '" + client_IDTextBox.Text + "'";
+          
+
+            try
+            {
+                cnnSample = new SqlConnection(_strConn);
+                cnnSample.Open();
+
+                cmdGetData = new SqlCommand();
+
+                cmdGetData.Connection = cnnSample;
+                cmdGetData.CommandType = CommandType.Text;
+                cmdGetData.CommandText = strSql;
+
+                tbl.Load(cmdGetData.ExecuteReader());
+                classDataGridView.DataSource = tbl.DefaultView;
+
+
+                cnnSample.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -138,6 +150,31 @@ namespace DatabaseAssignment11
         private void button1_Click(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
+        }
+
+        private void clientBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            UpdateClassGrid();
+        }
+
+        private void workerBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            UpdateSchedule();
+        }
+
+        private void rbCurrentDay_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateSchedule();
+        }
+
+        private void rbNextWeek_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateSchedule();
+        }
+
+        private void rbNextMonth_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateSchedule();
         }
     }
 }

@@ -37,12 +37,12 @@
             System.Windows.Forms.Label nameLabel;
             System.Windows.Forms.Label phone_Label;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.workersTab = new System.Windows.Forms.TabPage();
             this.schedulePanel = new System.Windows.Forms.Panel();
@@ -121,63 +121,70 @@
             // client_IDLabel
             // 
             client_IDLabel.AutoSize = true;
-            client_IDLabel.Location = new System.Drawing.Point(28, 76);
+            client_IDLabel.Location = new System.Drawing.Point(14, 40);
+            client_IDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             client_IDLabel.Name = "client_IDLabel";
-            client_IDLabel.Size = new System.Drawing.Size(99, 25);
+            client_IDLabel.Size = new System.Drawing.Size(50, 13);
             client_IDLabel.TabIndex = 0;
             client_IDLabel.Text = "Client ID:";
             // 
             // clientNameLabel
             // 
             clientNameLabel.AutoSize = true;
-            clientNameLabel.Location = new System.Drawing.Point(28, 113);
+            clientNameLabel.Location = new System.Drawing.Point(14, 59);
+            clientNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             clientNameLabel.Name = "clientNameLabel";
-            clientNameLabel.Size = new System.Drawing.Size(74, 25);
+            clientNameLabel.Size = new System.Drawing.Size(38, 13);
             clientNameLabel.TabIndex = 2;
             clientNameLabel.Text = "Name:";
             // 
             // genderLabel
             // 
             genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(28, 150);
+            genderLabel.Location = new System.Drawing.Point(14, 78);
+            genderLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(89, 25);
+            genderLabel.Size = new System.Drawing.Size(45, 13);
             genderLabel.TabIndex = 4;
             genderLabel.Text = "Gender:";
             // 
             // ageLabel
             // 
             ageLabel.AutoSize = true;
-            ageLabel.Location = new System.Drawing.Point(28, 187);
+            ageLabel.Location = new System.Drawing.Point(14, 97);
+            ageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             ageLabel.Name = "ageLabel";
-            ageLabel.Size = new System.Drawing.Size(56, 25);
+            ageLabel.Size = new System.Drawing.Size(29, 13);
             ageLabel.TabIndex = 6;
             ageLabel.Text = "Age:";
             // 
             // staff_IDLabel
             // 
             staff_IDLabel.AutoSize = true;
-            staff_IDLabel.Location = new System.Drawing.Point(29, 72);
+            staff_IDLabel.Location = new System.Drawing.Point(14, 37);
+            staff_IDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             staff_IDLabel.Name = "staff_IDLabel";
-            staff_IDLabel.Size = new System.Drawing.Size(88, 25);
+            staff_IDLabel.Size = new System.Drawing.Size(46, 13);
             staff_IDLabel.TabIndex = 0;
             staff_IDLabel.Text = "Staff ID:";
             // 
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(29, 109);
+            nameLabel.Location = new System.Drawing.Point(14, 57);
+            nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(74, 25);
+            nameLabel.Size = new System.Drawing.Size(38, 13);
             nameLabel.TabIndex = 2;
             nameLabel.Text = "Name:";
             // 
             // phone_Label
             // 
             phone_Label.AutoSize = true;
-            phone_Label.Location = new System.Drawing.Point(29, 148);
+            phone_Label.Location = new System.Drawing.Point(14, 77);
+            phone_Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             phone_Label.Name = "phone_Label";
-            phone_Label.Size = new System.Drawing.Size(92, 25);
+            phone_Label.Size = new System.Drawing.Size(48, 13);
             phone_Label.TabIndex = 4;
             phone_Label.Text = "Phone#:";
             // 
@@ -187,10 +194,9 @@
             this.tabControl1.Controls.Add(this.clientTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1290, 988);
+            this.tabControl1.Size = new System.Drawing.Size(645, 514);
             this.tabControl1.TabIndex = 0;
             // 
             // workersTab
@@ -205,11 +211,10 @@
             this.workersTab.Controls.Add(nameLabel);
             this.workersTab.Controls.Add(phone_Label);
             this.workersTab.Controls.Add(this.phone_TextBox);
-            this.workersTab.Location = new System.Drawing.Point(8, 39);
-            this.workersTab.Margin = new System.Windows.Forms.Padding(6);
+            this.workersTab.Location = new System.Drawing.Point(4, 22);
             this.workersTab.Name = "workersTab";
-            this.workersTab.Padding = new System.Windows.Forms.Padding(6);
-            this.workersTab.Size = new System.Drawing.Size(1274, 941);
+            this.workersTab.Padding = new System.Windows.Forms.Padding(3);
+            this.workersTab.Size = new System.Drawing.Size(637, 488);
             this.workersTab.TabIndex = 0;
             this.workersTab.Text = "workers";
             this.workersTab.UseVisualStyleBackColor = true;
@@ -219,43 +224,50 @@
             this.schedulePanel.Controls.Add(this.rbNextMonth);
             this.schedulePanel.Controls.Add(this.rbCurrentDay);
             this.schedulePanel.Controls.Add(this.rbNextWeek);
-            this.schedulePanel.Location = new System.Drawing.Point(997, 126);
+            this.schedulePanel.Location = new System.Drawing.Point(498, 66);
+            this.schedulePanel.Margin = new System.Windows.Forms.Padding(2);
             this.schedulePanel.Name = "schedulePanel";
-            this.schedulePanel.Size = new System.Drawing.Size(198, 150);
+            this.schedulePanel.Size = new System.Drawing.Size(99, 78);
             this.schedulePanel.TabIndex = 13;
             // 
             // rbNextMonth
             // 
             this.rbNextMonth.AutoSize = true;
-            this.rbNextMonth.Location = new System.Drawing.Point(22, 93);
+            this.rbNextMonth.Location = new System.Drawing.Point(11, 48);
+            this.rbNextMonth.Margin = new System.Windows.Forms.Padding(2);
             this.rbNextMonth.Name = "rbNextMonth";
-            this.rbNextMonth.Size = new System.Drawing.Size(153, 29);
+            this.rbNextMonth.Size = new System.Drawing.Size(80, 17);
             this.rbNextMonth.TabIndex = 10;
             this.rbNextMonth.TabStop = true;
             this.rbNextMonth.Text = "Next Month";
             this.rbNextMonth.UseVisualStyleBackColor = true;
+            this.rbNextMonth.CheckedChanged += new System.EventHandler(this.rbNextMonth_CheckedChanged);
             // 
             // rbCurrentDay
             // 
             this.rbCurrentDay.AutoSize = true;
-            this.rbCurrentDay.Location = new System.Drawing.Point(22, 23);
+            this.rbCurrentDay.Location = new System.Drawing.Point(11, 12);
+            this.rbCurrentDay.Margin = new System.Windows.Forms.Padding(2);
             this.rbCurrentDay.Name = "rbCurrentDay";
-            this.rbCurrentDay.Size = new System.Drawing.Size(158, 29);
+            this.rbCurrentDay.Size = new System.Drawing.Size(81, 17);
             this.rbCurrentDay.TabIndex = 8;
             this.rbCurrentDay.TabStop = true;
             this.rbCurrentDay.Text = "Current Day";
             this.rbCurrentDay.UseVisualStyleBackColor = true;
+            this.rbCurrentDay.CheckedChanged += new System.EventHandler(this.rbCurrentDay_CheckedChanged);
             // 
             // rbNextWeek
             // 
             this.rbNextWeek.AutoSize = true;
-            this.rbNextWeek.Location = new System.Drawing.Point(22, 58);
+            this.rbNextWeek.Location = new System.Drawing.Point(11, 30);
+            this.rbNextWeek.Margin = new System.Windows.Forms.Padding(2);
             this.rbNextWeek.Name = "rbNextWeek";
-            this.rbNextWeek.Size = new System.Drawing.Size(148, 29);
+            this.rbNextWeek.Size = new System.Drawing.Size(79, 17);
             this.rbNextWeek.TabIndex = 9;
             this.rbNextWeek.TabStop = true;
             this.rbNextWeek.Text = "Next Week";
             this.rbNextWeek.UseVisualStyleBackColor = true;
+            this.rbNextWeek.CheckedChanged += new System.EventHandler(this.rbNextWeek_CheckedChanged);
             // 
             // workerBindingNavigator
             // 
@@ -265,16 +277,29 @@
             this.workerBindingNavigator.DeleteItem = this.wbindingNavigatorDeleteItem;
             this.workerBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
             this.workerBindingNavigator.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.workerBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.wbindingNavigatorMoveFirstItem, this.wbindingNavigatorMovePreviousItem, this.wbindingNavigatorSeparator, this.wbindingNavigatorPositionItem, this.wbindingNavigatorCountItem, this.wbindingNavigatorSeparator1, this.wbindingNavigatorMoveNextItem, this.wbindingNavigatorMoveLastItem, this.wbindingNavigatorSeparator2, this.wbindingNavigatorAddNewItem, this.wbindingNavigatorDeleteItem, this.workerBindingNavigatorSaveItem });
-            this.workerBindingNavigator.Location = new System.Drawing.Point(9, 6);
+            this.workerBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wbindingNavigatorMoveFirstItem,
+            this.wbindingNavigatorMovePreviousItem,
+            this.wbindingNavigatorSeparator,
+            this.wbindingNavigatorPositionItem,
+            this.wbindingNavigatorCountItem,
+            this.wbindingNavigatorSeparator1,
+            this.wbindingNavigatorMoveNextItem,
+            this.wbindingNavigatorMoveLastItem,
+            this.wbindingNavigatorSeparator2,
+            this.wbindingNavigatorAddNewItem,
+            this.wbindingNavigatorDeleteItem,
+            this.workerBindingNavigatorSaveItem});
+            this.workerBindingNavigator.Location = new System.Drawing.Point(4, 3);
             this.workerBindingNavigator.MoveFirstItem = this.wbindingNavigatorMoveFirstItem;
             this.workerBindingNavigator.MoveLastItem = this.wbindingNavigatorMoveLastItem;
             this.workerBindingNavigator.MoveNextItem = this.wbindingNavigatorMoveNextItem;
             this.workerBindingNavigator.MovePreviousItem = this.wbindingNavigatorMovePreviousItem;
             this.workerBindingNavigator.Name = "workerBindingNavigator";
+            this.workerBindingNavigator.Padding = new System.Windows.Forms.Padding(0);
             this.workerBindingNavigator.PositionItem = this.wbindingNavigatorPositionItem;
             this.workerBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.workerBindingNavigator.Size = new System.Drawing.Size(405, 39);
+            this.workerBindingNavigator.Size = new System.Drawing.Size(345, 39);
             this.workerBindingNavigator.Stretch = true;
             this.workerBindingNavigator.TabIndex = 1;
             this.workerBindingNavigator.Text = "bindingNavigator1";
@@ -292,17 +317,17 @@
             // 
             this.workerBindingSource.DataMember = "Worker";
             this.workerBindingSource.DataSource = this.cPSC285S23BDataSet;
+            this.workerBindingSource.CurrentChanged += new System.EventHandler(this.workerBindingSource_CurrentChanged);
             // 
             // cPSC285S23BDataSet
             // 
             this.cPSC285S23BDataSet.DataSetName = "CPSC285S23BDataSet";
-            this.cPSC285S23BDataSet.Namespace = "http://tempuri.org/CPSC285S23BDataSet.xsd";
             this.cPSC285S23BDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // wbindingNavigatorCountItem
             // 
             this.wbindingNavigatorCountItem.Name = "wbindingNavigatorCountItem";
-            this.wbindingNavigatorCountItem.Size = new System.Drawing.Size(71, 36);
+            this.wbindingNavigatorCountItem.Size = new System.Drawing.Size(35, 36);
             this.wbindingNavigatorCountItem.Text = "of {0}";
             this.wbindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -343,7 +368,7 @@
             this.wbindingNavigatorPositionItem.AccessibleName = "Position";
             this.wbindingNavigatorPositionItem.AutoSize = false;
             this.wbindingNavigatorPositionItem.Name = "wbindingNavigatorPositionItem";
-            this.wbindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.wbindingNavigatorPositionItem.Size = new System.Drawing.Size(27, 23);
             this.wbindingNavigatorPositionItem.Text = "0";
             this.wbindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
@@ -386,43 +411,45 @@
             // 
             // scheduleDataGridView
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.scheduleDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.scheduleDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.scheduleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.scheduleDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.scheduleDataGridView.Location = new System.Drawing.Point(9, 327);
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.scheduleDataGridView.DefaultCellStyle = dataGridViewCellStyle20;
+            this.scheduleDataGridView.Location = new System.Drawing.Point(4, 170);
+            this.scheduleDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.scheduleDataGridView.Name = "scheduleDataGridView";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.scheduleDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.scheduleDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.scheduleDataGridView.RowHeadersWidth = 82;
-            this.scheduleDataGridView.Size = new System.Drawing.Size(1256, 605);
+            this.scheduleDataGridView.Size = new System.Drawing.Size(628, 315);
             this.scheduleDataGridView.TabIndex = 11;
             // 
             // lblScheduleDuration
             // 
             this.lblScheduleDuration.AutoSize = true;
-            this.lblScheduleDuration.Location = new System.Drawing.Point(997, 75);
+            this.lblScheduleDuration.Location = new System.Drawing.Point(498, 39);
+            this.lblScheduleDuration.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblScheduleDuration.Name = "lblScheduleDuration";
-            this.lblScheduleDuration.Size = new System.Drawing.Size(189, 25);
+            this.lblScheduleDuration.Size = new System.Drawing.Size(95, 13);
             this.lblScheduleDuration.TabIndex = 7;
             this.lblScheduleDuration.Text = "Schedule Duration";
             // 
@@ -431,25 +458,28 @@
             this.CBStaffName.DataSource = this.workerBindingSource;
             this.CBStaffName.DisplayMember = "Name";
             this.CBStaffName.FormattingEnabled = true;
-            this.CBStaffName.Location = new System.Drawing.Point(156, 106);
+            this.CBStaffName.Location = new System.Drawing.Point(78, 55);
+            this.CBStaffName.Margin = new System.Windows.Forms.Padding(2);
             this.CBStaffName.Name = "CBStaffName";
-            this.CBStaffName.Size = new System.Drawing.Size(212, 33);
+            this.CBStaffName.Size = new System.Drawing.Size(108, 21);
             this.CBStaffName.TabIndex = 6;
             // 
             // staff_IDTextBox
             // 
             this.staff_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workerBindingSource, "Staff_ID", true));
-            this.staff_IDTextBox.Location = new System.Drawing.Point(156, 69);
+            this.staff_IDTextBox.Location = new System.Drawing.Point(78, 36);
+            this.staff_IDTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.staff_IDTextBox.Name = "staff_IDTextBox";
-            this.staff_IDTextBox.Size = new System.Drawing.Size(212, 31);
+            this.staff_IDTextBox.Size = new System.Drawing.Size(108, 20);
             this.staff_IDTextBox.TabIndex = 1;
             // 
             // phone_TextBox
             // 
             this.phone_TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workerBindingSource, "Phone#", true));
-            this.phone_TextBox.Location = new System.Drawing.Point(156, 145);
+            this.phone_TextBox.Location = new System.Drawing.Point(78, 75);
+            this.phone_TextBox.Margin = new System.Windows.Forms.Padding(2);
             this.phone_TextBox.Name = "phone_TextBox";
-            this.phone_TextBox.Size = new System.Drawing.Size(212, 31);
+            this.phone_TextBox.Size = new System.Drawing.Size(108, 20);
             this.phone_TextBox.TabIndex = 5;
             // 
             // clientTab
@@ -466,53 +496,54 @@
             this.clientTab.Controls.Add(this.genderTextBox);
             this.clientTab.Controls.Add(ageLabel);
             this.clientTab.Controls.Add(this.ageTextBox);
-            this.clientTab.Location = new System.Drawing.Point(8, 39);
-            this.clientTab.Margin = new System.Windows.Forms.Padding(6);
+            this.clientTab.Location = new System.Drawing.Point(4, 22);
             this.clientTab.Name = "clientTab";
-            this.clientTab.Padding = new System.Windows.Forms.Padding(6);
-            this.clientTab.Size = new System.Drawing.Size(1274, 941);
+            this.clientTab.Padding = new System.Windows.Forms.Padding(3);
+            this.clientTab.Size = new System.Drawing.Size(637, 488);
             this.clientTab.TabIndex = 1;
             this.clientTab.Text = "clients";
             this.clientTab.UseVisualStyleBackColor = true;
             // 
             // classDataGridView
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.classDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.classDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.classDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.classDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
-            this.classDataGridView.Location = new System.Drawing.Point(47, 300);
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.classDataGridView.DefaultCellStyle = dataGridViewCellStyle23;
+            this.classDataGridView.Location = new System.Drawing.Point(24, 156);
+            this.classDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.classDataGridView.Name = "classDataGridView";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.classDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.classDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.classDataGridView.RowTemplate.Height = 33;
-            this.classDataGridView.Size = new System.Drawing.Size(1168, 588);
+            this.classDataGridView.Size = new System.Drawing.Size(584, 306);
             this.classDataGridView.TabIndex = 13;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(911, 175);
+            this.button2.Location = new System.Drawing.Point(456, 91);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 40);
+            this.button2.Size = new System.Drawing.Size(75, 21);
             this.button2.TabIndex = 12;
             this.button2.Text = "Add Class";
             this.button2.UseVisualStyleBackColor = true;
@@ -520,9 +551,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(911, 109);
+            this.button1.Location = new System.Drawing.Point(456, 57);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 40);
+            this.button1.Size = new System.Drawing.Size(75, 21);
             this.button1.TabIndex = 11;
             this.button1.Text = "Add Client";
             this.button1.UseVisualStyleBackColor = true;
@@ -533,15 +565,17 @@
             this.clientNameCmbBox.DataSource = this.clientBindingSource;
             this.clientNameCmbBox.DisplayMember = "Name";
             this.clientNameCmbBox.FormattingEnabled = true;
-            this.clientNameCmbBox.Location = new System.Drawing.Point(133, 110);
+            this.clientNameCmbBox.Location = new System.Drawing.Point(66, 57);
+            this.clientNameCmbBox.Margin = new System.Windows.Forms.Padding(2);
             this.clientNameCmbBox.Name = "clientNameCmbBox";
-            this.clientNameCmbBox.Size = new System.Drawing.Size(264, 33);
+            this.clientNameCmbBox.Size = new System.Drawing.Size(134, 21);
             this.clientNameCmbBox.TabIndex = 8;
             // 
             // clientBindingSource
             // 
             this.clientBindingSource.DataMember = "Client";
             this.clientBindingSource.DataSource = this.cPSC285S23BDataSet;
+            this.clientBindingSource.CurrentChanged += new System.EventHandler(this.clientBindingSource_CurrentChanged);
             // 
             // clientBindingNavigator
             // 
@@ -551,16 +585,29 @@
             this.clientBindingNavigator.DeleteItem = this.cbindingNavigatorDeleteItem;
             this.clientBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
             this.clientBindingNavigator.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.clientBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.cbindingNavigatorMoveFirstItem, this.cbindingNavigatorMovePreviousItem, this.cbindingNavigatorSeparator, this.cbindingNavigatorPositionItem, this.cbindingNavigatorCountItem, this.cbindingNavigatorSeparator1, this.cbindingNavigatorMoveNextItem, this.cbindingNavigatorMoveLastItem, this.cbindingNavigatorSeparator2, this.cbindingNavigatorAddNewItem, this.cbindingNavigatorDeleteItem, this.clientBindingNavigatorSaveItem });
-            this.clientBindingNavigator.Location = new System.Drawing.Point(17, 6);
+            this.clientBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cbindingNavigatorMoveFirstItem,
+            this.cbindingNavigatorMovePreviousItem,
+            this.cbindingNavigatorSeparator,
+            this.cbindingNavigatorPositionItem,
+            this.cbindingNavigatorCountItem,
+            this.cbindingNavigatorSeparator1,
+            this.cbindingNavigatorMoveNextItem,
+            this.cbindingNavigatorMoveLastItem,
+            this.cbindingNavigatorSeparator2,
+            this.cbindingNavigatorAddNewItem,
+            this.cbindingNavigatorDeleteItem,
+            this.clientBindingNavigatorSaveItem});
+            this.clientBindingNavigator.Location = new System.Drawing.Point(8, 3);
             this.clientBindingNavigator.MoveFirstItem = this.cbindingNavigatorMoveFirstItem;
             this.clientBindingNavigator.MoveLastItem = this.cbindingNavigatorMoveLastItem;
             this.clientBindingNavigator.MoveNextItem = this.cbindingNavigatorMoveNextItem;
             this.clientBindingNavigator.MovePreviousItem = this.cbindingNavigatorMovePreviousItem;
             this.clientBindingNavigator.Name = "clientBindingNavigator";
+            this.clientBindingNavigator.Padding = new System.Windows.Forms.Padding(0);
             this.clientBindingNavigator.PositionItem = this.cbindingNavigatorPositionItem;
             this.clientBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.clientBindingNavigator.Size = new System.Drawing.Size(405, 39);
+            this.clientBindingNavigator.Size = new System.Drawing.Size(345, 39);
             this.clientBindingNavigator.TabIndex = 1;
             this.clientBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -576,7 +623,7 @@
             // cbindingNavigatorCountItem
             // 
             this.cbindingNavigatorCountItem.Name = "cbindingNavigatorCountItem";
-            this.cbindingNavigatorCountItem.Size = new System.Drawing.Size(71, 36);
+            this.cbindingNavigatorCountItem.Size = new System.Drawing.Size(35, 36);
             this.cbindingNavigatorCountItem.Text = "of {0}";
             this.cbindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -617,7 +664,7 @@
             this.cbindingNavigatorPositionItem.AccessibleName = "Position";
             this.cbindingNavigatorPositionItem.AutoSize = false;
             this.cbindingNavigatorPositionItem.Name = "cbindingNavigatorPositionItem";
-            this.cbindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 39);
+            this.cbindingNavigatorPositionItem.Size = new System.Drawing.Size(27, 23);
             this.cbindingNavigatorPositionItem.Text = "0";
             this.cbindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
@@ -661,25 +708,28 @@
             // client_IDTextBox
             // 
             this.client_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "Client_ID", true));
-            this.client_IDTextBox.Location = new System.Drawing.Point(133, 73);
+            this.client_IDTextBox.Location = new System.Drawing.Point(66, 38);
+            this.client_IDTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.client_IDTextBox.Name = "client_IDTextBox";
-            this.client_IDTextBox.Size = new System.Drawing.Size(264, 31);
+            this.client_IDTextBox.Size = new System.Drawing.Size(134, 20);
             this.client_IDTextBox.TabIndex = 1;
             // 
             // genderTextBox
             // 
             this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "Gender", true));
-            this.genderTextBox.Location = new System.Drawing.Point(133, 147);
+            this.genderTextBox.Location = new System.Drawing.Point(66, 76);
+            this.genderTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(264, 31);
+            this.genderTextBox.Size = new System.Drawing.Size(134, 20);
             this.genderTextBox.TabIndex = 5;
             // 
             // ageTextBox
             // 
             this.ageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "Age", true));
-            this.ageTextBox.Location = new System.Drawing.Point(133, 184);
+            this.ageTextBox.Location = new System.Drawing.Point(66, 96);
+            this.ageTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ageTextBox.Name = "ageTextBox";
-            this.ageTextBox.Size = new System.Drawing.Size(264, 31);
+            this.ageTextBox.Size = new System.Drawing.Size(134, 20);
             this.ageTextBox.TabIndex = 7;
             // 
             // clientTableAdapter
@@ -705,11 +755,10 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1290, 988);
+            this.ClientSize = new System.Drawing.Size(645, 514);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -733,6 +782,7 @@
             this.clientBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cPSC285S23BDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.Panel schedulePanel;
