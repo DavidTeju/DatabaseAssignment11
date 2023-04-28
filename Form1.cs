@@ -55,12 +55,21 @@ namespace DatabaseAssignment11
 
         public void UpdateSchedule(object sender, EventArgs e)
         {
-            var rbToInt = new Dictionary<RadioButton, int>
+            int GetDaysFromRadioButtons(RadioButton radioButton)
             {
-                { rbCurrentDay, 0 },
-                { rbNextWeek, 7 },
-                { rbNextMonth, 30 }
-            };
+                switch (radioButton.Name)
+                {
+                    case "rbCurrentDay":
+                        return 0;
+                    case "rbNextWeek":
+                        return 7;
+                    case "rbNextMonth":
+                        return 30;
+                    default:
+                        throw new ArgumentException("Invalid radio button");
+                }
+            }
+
 
             int days = 0;
 
@@ -68,7 +77,7 @@ namespace DatabaseAssignment11
             {
                 if (control is RadioButton button && button.Checked)
                 {
-                    days = rbToInt[button];
+                    days = GetDaysFromRadioButtons(button);
                     break;
                 }
             }
@@ -76,9 +85,10 @@ namespace DatabaseAssignment11
             string todayDate = DateTime.Now.ToString("MM/dd/yyyy");
             string laterDate = DateTime.Now.AddDays(days).ToString("MM/dd/yyyy");
 
-            string strSql = $@"select Class.Date, StartTime, C.Name 
-                                from Class inner join Client C on C.Client_ID = Class.Client_ID
-                                where Date BETWEEN '{todayDate}' and '{laterDate}' and Class.Staff_ID = '{staff_IDTextBox.Text}'";
+            string strSql = "select Class.Date, StartTime, C.Name " +
+                            "from Class inner join Client C on C.Client_ID = Class.Client_ID " +
+                            "where Date BETWEEN '" + todayDate + "' and '" + laterDate + "' " +
+                            "and Class.Staff_ID = '" + staff_IDTextBox.Text + "'";
             LoadDataGrid(strSql, scheduleDataGridView);
         }
 
@@ -106,7 +116,7 @@ namespace DatabaseAssignment11
         {
             string strSql = "select Class.Date, Class.StartTime, Worker.Name " +
                             "from Class inner join Client C on C.Client_ID = Class.Client_ID inner join Worker on Class.Staff_ID = Worker.Staff_ID " +
-                            "where C.Client_ID = \'" + client_IDTextBox.Text + "\'";
+                            "where C.Client_ID = '" + client_IDTextBox.Text + "'";
 
             LoadDataGrid(strSql, classDataGridView);
         }

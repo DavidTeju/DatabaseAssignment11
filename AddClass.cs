@@ -11,10 +11,10 @@ namespace DatabaseAssignment11
         private Form1 _parent;
         private string _clientId;
 
-        public AddClass(string currClientID, Form1 parent)
+        public AddClass(string currClientId, Form1 parent)
         {
             InitializeComponent();
-            _clientId = currClientID;
+            _clientId = currClientId;
             _parent = parent;
 
             _defaultTimes = new List<Time>();
@@ -24,9 +24,9 @@ namespace DatabaseAssignment11
             }
         }
 
-        private bool DateIsValid(DateTime date)
+        private static bool DateIsValid(DateTime date)
         {
-            return date >= DateTime.Today;
+            return date >= DateTime.Today && date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday;
         }
 
         private bool TimeIsValid(Time time)
@@ -34,16 +34,12 @@ namespace DatabaseAssignment11
             if (time == null)
                 return false;
 
-            // Select from class where date is classDatePicker.Value.Date and time is time.hour and instructor
-            // (from Staff table) is instructorNameCombo.SelectedText
-            // Do not use @parameters
+            string sql = "SELECT COUNT(*) num " +
+                         "FROM Class inner join Worker W on W.Staff_ID = Class.Staff_ID " +
+                         "WHERE Date = '" + classDatePicker.Value.Date.ToString("yyyy-MM-dd") + "' " +
+                         "AND Class.StartTime = '" + time.hour + "' " +
+                         "AND W.Name = '" + instructorNameCombo.SelectedItem + "'";
 
-            string sql =
-                $@"SELECT COUNT(*) num
-                    FROM Class inner join Worker W on W.Staff_ID = Class.Staff_ID
-                    WHERE Date = '{classDatePicker.Value.Date}' 
-                      AND Class.StartTime = '{time.hour}' 
-                      AND W.Name = '{instructorNameCombo.SelectedItem}'";
 
             try
             {
@@ -125,11 +121,12 @@ namespace DatabaseAssignment11
             if (!ValidateClass())
                 return;
 
-            string sql =
-                $@"INSERT INTO Class (Date, StartTime, Staff_ID, Client_ID)
-                    VALUES ('{classDatePicker.Value.ToString("MM/dd/yyyy")}', '{((Time)timePicker.SelectedItem).hour}', 
-                            (SELECT Staff_ID FROM Worker WHERE Name = '{instructorNameCombo.SelectedItem}'), 
-                            '{_clientId}')";
+            string sql = "INSERT INTO Class (Date, StartTime, Staff_ID, Client_ID) " +
+                         "VALUES ('" + classDatePicker.Value.ToString("MM/dd/yyyy") + "', " +
+                         "'" + ((Time)timePicker.SelectedItem).hour + "', " +
+                         "(SELECT Staff_ID FROM Worker WHERE Name = '" + instructorNameCombo.SelectedItem + "'), " +
+                         "'" + _clientId + "')";
+
 
             try
             {
@@ -164,6 +161,12 @@ namespace DatabaseAssignment11
                 string hourString = hour % 12 == 0 ? "12" : (hour % 12).ToString();
                 return hourString + ":00 " + amOrPm;
             }
+        }
+
+        private void ClearError(object sender, EventArgs e)
+        {
+            var errorProvider = new ErrorProvider();
+            errorProvider.SetError((Control)sender, "");
         }
     }
 }

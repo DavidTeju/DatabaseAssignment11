@@ -48,6 +48,7 @@ namespace DatabaseAssignment11
             this.instructorNameCombo.Name = "instructorNameCombo";
             this.instructorNameCombo.Size = new System.Drawing.Size(250, 33);
             this.instructorNameCombo.TabIndex = 0;
+            this.instructorNameCombo.SelectedIndexChanged += new System.EventHandler(this.ClearError);
             // 
             // instructorNameLabel
             // 
@@ -63,6 +64,7 @@ namespace DatabaseAssignment11
             this.classDatePicker.Name = "classDatePicker";
             this.classDatePicker.Size = new System.Drawing.Size(296, 31);
             this.classDatePicker.TabIndex = 2;
+            this.classDatePicker.ValueChanged += new System.EventHandler(this.ClearError);
             // 
             // label1
             // 
@@ -88,6 +90,7 @@ namespace DatabaseAssignment11
             this.timePicker.Name = "timePicker";
             this.timePicker.Size = new System.Drawing.Size(135, 33);
             this.timePicker.TabIndex = 5;
+            this.timePicker.SelectedIndexChanged += new System.EventHandler(this.ClearError);
             // 
             // submitButton
             // 
