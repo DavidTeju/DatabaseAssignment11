@@ -31,21 +31,23 @@ namespace DatabaseAssignment11
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.instructorNameCombo = new System.Windows.Forms.ComboBox();
             this.instructorNameLabel = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.classDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.timePicker = new System.Windows.Forms.ComboBox();
+            this.submitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // instructorNameCombo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(249, 44);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 33);
-            this.comboBox1.TabIndex = 0;
+            this.instructorNameCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.instructorNameCombo.FormattingEnabled = true;
+            this.instructorNameCombo.Location = new System.Drawing.Point(249, 44);
+            this.instructorNameCombo.Name = "instructorNameCombo";
+            this.instructorNameCombo.Size = new System.Drawing.Size(250, 33);
+            this.instructorNameCombo.TabIndex = 0;
             // 
             // instructorNameLabel
             // 
@@ -55,12 +57,12 @@ namespace DatabaseAssignment11
             this.instructorNameLabel.TabIndex = 1;
             this.instructorNameLabel.Text = "Instructor Name:";
             // 
-            // dateTimePicker1
+            // classDatePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(249, 105);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(296, 31);
-            this.dateTimePicker1.TabIndex = 2;
+            this.classDatePicker.Location = new System.Drawing.Point(249, 105);
+            this.classDatePicker.Name = "classDatePicker";
+            this.classDatePicker.Size = new System.Drawing.Size(296, 31);
+            this.classDatePicker.TabIndex = 2;
             // 
             // label1
             // 
@@ -78,36 +80,51 @@ namespace DatabaseAssignment11
             this.label2.TabIndex = 4;
             this.label2.Text = "Time:";
             // 
-            // comboBox2
+            // timePicker
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(249, 164);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(135, 33);
-            this.comboBox2.TabIndex = 5;
+            this.timePicker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.timePicker.FormattingEnabled = true;
+            this.timePicker.Location = new System.Drawing.Point(249, 164);
+            this.timePicker.Name = "timePicker";
+            this.timePicker.Size = new System.Drawing.Size(135, 33);
+            this.timePicker.TabIndex = 5;
+            // 
+            // submitButton
+            // 
+            this.submitButton.Location = new System.Drawing.Point(65, 285);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(160, 46);
+            this.submitButton.TabIndex = 6;
+            this.submitButton.Text = "Add";
+            this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // AddClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.submitButton);
+            this.Controls.Add(this.timePicker);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.classDatePicker);
             this.Controls.Add(this.instructorNameLabel);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.instructorNameCombo);
             this.Name = "AddClass";
             this.Text = "AddClass";
+            this.Load += new System.EventHandler(this.AddClass_Load);
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button submitButton;
+
+        private System.Windows.Forms.ComboBox instructorNameCombo;
         private System.Windows.Forms.Label instructorNameLabel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker classDatePicker;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox timePicker;
 
         #endregion
     }

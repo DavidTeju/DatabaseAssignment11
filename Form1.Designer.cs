@@ -121,7 +121,7 @@
             // client_IDLabel
             // 
             client_IDLabel.AutoSize = true;
-            client_IDLabel.Location = new System.Drawing.Point(28, 76);
+            client_IDLabel.Location = new System.Drawing.Point(28, 85);
             client_IDLabel.Name = "client_IDLabel";
             client_IDLabel.Size = new System.Drawing.Size(99, 25);
             client_IDLabel.TabIndex = 0;
@@ -130,7 +130,7 @@
             // clientNameLabel
             // 
             clientNameLabel.AutoSize = true;
-            clientNameLabel.Location = new System.Drawing.Point(28, 113);
+            clientNameLabel.Location = new System.Drawing.Point(28, 137);
             clientNameLabel.Name = "clientNameLabel";
             clientNameLabel.Size = new System.Drawing.Size(74, 25);
             clientNameLabel.TabIndex = 2;
@@ -139,7 +139,7 @@
             // genderLabel
             // 
             genderLabel.AutoSize = true;
-            genderLabel.Location = new System.Drawing.Point(28, 150);
+            genderLabel.Location = new System.Drawing.Point(28, 192);
             genderLabel.Name = "genderLabel";
             genderLabel.Size = new System.Drawing.Size(89, 25);
             genderLabel.TabIndex = 4;
@@ -148,7 +148,7 @@
             // ageLabel
             // 
             ageLabel.AutoSize = true;
-            ageLabel.Location = new System.Drawing.Point(28, 187);
+            ageLabel.Location = new System.Drawing.Point(28, 243);
             ageLabel.Name = "ageLabel";
             ageLabel.Size = new System.Drawing.Size(56, 25);
             ageLabel.TabIndex = 6;
@@ -157,7 +157,7 @@
             // staff_IDLabel
             // 
             staff_IDLabel.AutoSize = true;
-            staff_IDLabel.Location = new System.Drawing.Point(29, 72);
+            staff_IDLabel.Location = new System.Drawing.Point(29, 92);
             staff_IDLabel.Name = "staff_IDLabel";
             staff_IDLabel.Size = new System.Drawing.Size(88, 25);
             staff_IDLabel.TabIndex = 0;
@@ -166,7 +166,7 @@
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(29, 109);
+            nameLabel.Location = new System.Drawing.Point(29, 139);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new System.Drawing.Size(74, 25);
             nameLabel.TabIndex = 2;
@@ -175,7 +175,7 @@
             // phone_Label
             // 
             phone_Label.AutoSize = true;
-            phone_Label.Location = new System.Drawing.Point(29, 148);
+            phone_Label.Location = new System.Drawing.Point(29, 187);
             phone_Label.Name = "phone_Label";
             phone_Label.Size = new System.Drawing.Size(92, 25);
             phone_Label.TabIndex = 4;
@@ -192,6 +192,8 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1290, 988);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Click += new System.EventHandler(this.UpdateClassGrid);
+            this.tabControl1.Enter += new System.EventHandler(this.UpdateClassGrid);
             // 
             // workersTab
             // 
@@ -234,6 +236,7 @@
             this.rbNextMonth.TabStop = true;
             this.rbNextMonth.Text = "Next Month";
             this.rbNextMonth.UseVisualStyleBackColor = true;
+            this.rbNextMonth.CheckedChanged += new System.EventHandler(this.UpdateSchedule);
             // 
             // rbCurrentDay
             // 
@@ -245,6 +248,7 @@
             this.rbCurrentDay.TabStop = true;
             this.rbCurrentDay.Text = "Current Day";
             this.rbCurrentDay.UseVisualStyleBackColor = true;
+            this.rbCurrentDay.CheckedChanged += new System.EventHandler(this.UpdateSchedule);
             // 
             // rbNextWeek
             // 
@@ -256,6 +260,7 @@
             this.rbNextWeek.TabStop = true;
             this.rbNextWeek.Text = "Next Week";
             this.rbNextWeek.UseVisualStyleBackColor = true;
+            this.rbNextWeek.CheckedChanged += new System.EventHandler(this.UpdateSchedule);
             // 
             // workerBindingNavigator
             // 
@@ -266,7 +271,7 @@
             this.workerBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
             this.workerBindingNavigator.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.workerBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.wbindingNavigatorMoveFirstItem, this.wbindingNavigatorMovePreviousItem, this.wbindingNavigatorSeparator, this.wbindingNavigatorPositionItem, this.wbindingNavigatorCountItem, this.wbindingNavigatorSeparator1, this.wbindingNavigatorMoveNextItem, this.wbindingNavigatorMoveLastItem, this.wbindingNavigatorSeparator2, this.wbindingNavigatorAddNewItem, this.wbindingNavigatorDeleteItem, this.workerBindingNavigatorSaveItem });
-            this.workerBindingNavigator.Location = new System.Drawing.Point(9, 6);
+            this.workerBindingNavigator.Location = new System.Drawing.Point(29, 6);
             this.workerBindingNavigator.MoveFirstItem = this.wbindingNavigatorMoveFirstItem;
             this.workerBindingNavigator.MoveLastItem = this.wbindingNavigatorMoveLastItem;
             this.workerBindingNavigator.MoveNextItem = this.wbindingNavigatorMoveNextItem;
@@ -292,6 +297,7 @@
             // 
             this.workerBindingSource.DataMember = "Worker";
             this.workerBindingSource.DataSource = this.cPSC285S23BDataSet;
+            this.workerBindingSource.CurrentChanged += new System.EventHandler(this.UpdateSchedule);
             // 
             // cPSC285S23BDataSet
             // 
@@ -430,8 +436,9 @@
             // 
             this.CBStaffName.DataSource = this.workerBindingSource;
             this.CBStaffName.DisplayMember = "Name";
+            this.CBStaffName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBStaffName.FormattingEnabled = true;
-            this.CBStaffName.Location = new System.Drawing.Point(156, 106);
+            this.CBStaffName.Location = new System.Drawing.Point(156, 136);
             this.CBStaffName.Name = "CBStaffName";
             this.CBStaffName.Size = new System.Drawing.Size(212, 33);
             this.CBStaffName.TabIndex = 6;
@@ -439,16 +446,18 @@
             // staff_IDTextBox
             // 
             this.staff_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workerBindingSource, "Staff_ID", true));
-            this.staff_IDTextBox.Location = new System.Drawing.Point(156, 69);
+            this.staff_IDTextBox.Location = new System.Drawing.Point(156, 89);
             this.staff_IDTextBox.Name = "staff_IDTextBox";
+            this.staff_IDTextBox.ReadOnly = true;
             this.staff_IDTextBox.Size = new System.Drawing.Size(212, 31);
             this.staff_IDTextBox.TabIndex = 1;
             // 
             // phone_TextBox
             // 
             this.phone_TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.workerBindingSource, "Phone#", true));
-            this.phone_TextBox.Location = new System.Drawing.Point(156, 145);
+            this.phone_TextBox.Location = new System.Drawing.Point(156, 184);
             this.phone_TextBox.Name = "phone_TextBox";
+            this.phone_TextBox.ReadOnly = true;
             this.phone_TextBox.Size = new System.Drawing.Size(212, 31);
             this.phone_TextBox.TabIndex = 5;
             // 
@@ -532,8 +541,9 @@
             // 
             this.clientNameCmbBox.DataSource = this.clientBindingSource;
             this.clientNameCmbBox.DisplayMember = "Name";
+            this.clientNameCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.clientNameCmbBox.FormattingEnabled = true;
-            this.clientNameCmbBox.Location = new System.Drawing.Point(133, 110);
+            this.clientNameCmbBox.Location = new System.Drawing.Point(133, 134);
             this.clientNameCmbBox.Name = "clientNameCmbBox";
             this.clientNameCmbBox.Size = new System.Drawing.Size(264, 33);
             this.clientNameCmbBox.TabIndex = 8;
@@ -542,6 +552,7 @@
             // 
             this.clientBindingSource.DataMember = "Client";
             this.clientBindingSource.DataSource = this.cPSC285S23BDataSet;
+            this.clientBindingSource.CurrentChanged += new System.EventHandler(this.UpdateClassGrid);
             // 
             // clientBindingNavigator
             // 
@@ -552,7 +563,7 @@
             this.clientBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
             this.clientBindingNavigator.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.clientBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.cbindingNavigatorMoveFirstItem, this.cbindingNavigatorMovePreviousItem, this.cbindingNavigatorSeparator, this.cbindingNavigatorPositionItem, this.cbindingNavigatorCountItem, this.cbindingNavigatorSeparator1, this.cbindingNavigatorMoveNextItem, this.cbindingNavigatorMoveLastItem, this.cbindingNavigatorSeparator2, this.cbindingNavigatorAddNewItem, this.cbindingNavigatorDeleteItem, this.clientBindingNavigatorSaveItem });
-            this.clientBindingNavigator.Location = new System.Drawing.Point(17, 6);
+            this.clientBindingNavigator.Location = new System.Drawing.Point(28, 6);
             this.clientBindingNavigator.MoveFirstItem = this.cbindingNavigatorMoveFirstItem;
             this.clientBindingNavigator.MoveLastItem = this.cbindingNavigatorMoveLastItem;
             this.clientBindingNavigator.MoveNextItem = this.cbindingNavigatorMoveNextItem;
@@ -661,24 +672,27 @@
             // client_IDTextBox
             // 
             this.client_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "Client_ID", true));
-            this.client_IDTextBox.Location = new System.Drawing.Point(133, 73);
+            this.client_IDTextBox.Location = new System.Drawing.Point(133, 82);
             this.client_IDTextBox.Name = "client_IDTextBox";
+            this.client_IDTextBox.ReadOnly = true;
             this.client_IDTextBox.Size = new System.Drawing.Size(264, 31);
             this.client_IDTextBox.TabIndex = 1;
             // 
             // genderTextBox
             // 
             this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "Gender", true));
-            this.genderTextBox.Location = new System.Drawing.Point(133, 147);
+            this.genderTextBox.Location = new System.Drawing.Point(133, 189);
             this.genderTextBox.Name = "genderTextBox";
+            this.genderTextBox.ReadOnly = true;
             this.genderTextBox.Size = new System.Drawing.Size(264, 31);
             this.genderTextBox.TabIndex = 5;
             // 
             // ageTextBox
             // 
             this.ageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientBindingSource, "Age", true));
-            this.ageTextBox.Location = new System.Drawing.Point(133, 184);
+            this.ageTextBox.Location = new System.Drawing.Point(133, 240);
             this.ageTextBox.Name = "ageTextBox";
+            this.ageTextBox.ReadOnly = true;
             this.ageTextBox.Size = new System.Drawing.Size(264, 31);
             this.ageTextBox.TabIndex = 7;
             // 

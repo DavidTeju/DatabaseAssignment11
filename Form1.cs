@@ -14,7 +14,7 @@ namespace DatabaseAssignment11
 {
     public partial class Form1 : Form
     {
-        private string _strConn = "Data Source=cissql;Initial Catalog=CPSC285S23B;Integrated Security=True";
+        public static string StrConn = "Data Source=cissql;Initial Catalog=CPSC285S23B;Integrated Security=True";
 
         public Form1()
         {
@@ -49,29 +49,11 @@ namespace DatabaseAssignment11
 
             rbCurrentDay.Checked = true;
 
-            rbCurrentDay.CheckedChanged += UpdateSchedule;
-            rbNextWeek.CheckedChanged += UpdateSchedule;
-            rbNextMonth.CheckedChanged += UpdateSchedule;
-
-            workerBindingSource.CurrentChanged += UpdateSchedule;
-
-            clientBindingSource.CurrentChanged += UpdateClassGrid;
-
-            UpdateClassGrid();
-            UpdateSchedule();
+            UpdateClassGrid(null, null);
+            UpdateSchedule(null, null);
         }
 
-        private void UpdateClassGrid(object sender, EventArgs e)
-        {
-            UpdateClassGrid();
-        }
-
-        private void UpdateSchedule(object sender, EventArgs e)
-        {
-            UpdateSchedule();
-        }
-
-        private void UpdateSchedule()
+        public void UpdateSchedule(object sender, EventArgs e)
         {
             var rbToInt = new Dictionary<RadioButton, int>
             {
@@ -105,7 +87,7 @@ namespace DatabaseAssignment11
         {
             try
             {
-                var sqlConnection = new SqlConnection(_strConn);
+                var sqlConnection = new SqlConnection(StrConn);
                 sqlConnection.Open();
                 var cmdGetData = new SqlCommand(sqlQuery, sqlConnection);
                 DataTable tbl = new DataTable();
@@ -120,18 +102,18 @@ namespace DatabaseAssignment11
             }
         }
 
-        private void UpdateClassGrid()
+        public void UpdateClassGrid(object sender, EventArgs e)
         {
-            string strSql = $@"select Class.Date, Class.StartTime, Worker.Name 
-                                from Class inner join Client C on C.Client_ID = Class.Client_ID inner join Worker on Class.Staff_ID = Worker.Staff_ID
-                                where C.Client_ID = '{client_IDTextBox.Text}'";
+            string strSql = "select Class.Date, Class.StartTime, Worker.Name " +
+                            "from Class inner join Client C on C.Client_ID = Class.Client_ID inner join Worker on Class.Staff_ID = Worker.Staff_ID " +
+                            "where C.Client_ID = \'" + client_IDTextBox.Text + "\'";
 
             LoadDataGrid(strSql, classDataGridView);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var form = new AddClass(client_IDTextBox.Text);
+            var form = new AddClass(client_IDTextBox.Text, this);
             form.ShowDialog();
         }
 
