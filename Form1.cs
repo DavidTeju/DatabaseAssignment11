@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace DatabaseAssignment11
 {
@@ -23,24 +16,24 @@ namespace DatabaseAssignment11
 
         private void clientBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.clientBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.cPSC285S23BDataSet);
+            Validate();
+            clientBindingSource.EndEdit();
+            tableAdapterManager.UpdateAll(cPSC285S23BDataSet);
         }
 
         private void workerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.workerBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.cPSC285S23BDataSet);
+            Validate();
+            workerBindingSource.EndEdit();
+            tableAdapterManager.UpdateAll(cPSC285S23BDataSet);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
-                this.workerTableAdapter.Fill(this.cPSC285S23BDataSet.Worker);
-                this.clientTableAdapter.Fill(this.cPSC285S23BDataSet.Client);
+                workerTableAdapter.Fill(cPSC285S23BDataSet.Worker);
+                clientTableAdapter.Fill(cPSC285S23BDataSet.Client);
             }
             catch (Exception ex)
             {
@@ -123,13 +116,28 @@ namespace DatabaseAssignment11
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var form = new AddClass(client_IDTextBox.Text, this);
+            var form = new AddClass(client_IDTextBox.Text);
             form.ShowDialog();
+            UpdateClassGrid(null, null);
+            UpdateSchedule(null, null);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            var form = new AddClient();
+            form.ShowDialog();
+
+            // Refresh the data in the Client table after the AddClient form is closed
+            try
+            {
+                clientTableAdapter.Fill(cPSC285S23BDataSet.Client);
+                // Then select the newly added client
+                clientBindingSource.Position = clientBindingSource.Count - 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
