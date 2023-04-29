@@ -74,7 +74,7 @@ namespace DatabaseAssignment11
                 return false;
             }
 
-            if (!TimeIsValid((Time)timePicker.SelectedItem))
+            if (!TimeIsValid(timePicker.SelectedItem as Time))
             {
                 errorProvider.SetError(timePicker, "Time is already taken");
                 return false;
